@@ -22,7 +22,7 @@
     <div class="container my-5 pt-5">
         <div class="d-flex justify-content-between align-items-center">
             <h3>Customer Profile</h3>
-            <a href="/customer/changepass" class="btn btn-primary">Change Password</a>
+            <a href="/customer/changepass" class="btn btn-primary">Thay đổi mật khẩu</a>
         </div>
         <hr />
         <!-- Display backend messages -->
@@ -67,7 +67,7 @@
                         <img id="avatarPreview" class="img-thumbnail mt-3" style="display: none;" />
                     </div>
                     <div class="d-grid">
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-primary">Lưu</button>
                     </div>
                 </form:form>
             </div>

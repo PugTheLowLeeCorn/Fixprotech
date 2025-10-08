@@ -57,29 +57,29 @@
     
     <div class="container py-5">
         <div class="content-container">
-            <h1 class="my-3 text-succes" style="color :rgb(63, 225, 63);">Payment Successfully</h1>
-            <h2 class="my-2 text-center">Order Details</h2>
+            <h1 class="my-3 text-succes" style="color :rgb(63, 225, 63);">Thanh toán thành công</h1>
+            <h2 class="my-2 text-center">Chi tiết đơn hàng</h2>
             <table class="table table-bordered">
                 <tbody>
                     <tr>
-                        <td><strong>Order Information:</strong></td>
+                        <td><strong>Thông tin đơn hàng:</strong></td>
                         <td><c:out value="${orderInfo}" default="[Không có thông tin]"/></td>
                     </tr>
                     <tr>
-                        <td><strong>Payment Amount:</strong></td>
+                        <td><strong>Số tiền thanh toán:</strong></td>
                         <td><fmt:formatNumber type="number" value="${amount}" groupingUsed="true"/> VND</td>
                     </tr>
                     <tr>
-                        <td><strong>Payment Time:</strong></td>
+                        <td><strong>Thời gian thanh toán:</strong></td>
                         <td><c:out value="${paymentTime}" default="[Không có thời gian]"/></td>
                     </tr>
                     <tr>
-                        <td><strong>Transaction Code:</strong></td>
+                        <td><strong>Mã giao dịch:</strong></td>
                         <td><c:out value="${transactionId}" default="[Không có mã]"/></td>
                     </tr>
                 </tbody>
             </table>
-            <a href="/" class="btn btn-primary btn-block">Back Home Page</a>
+            <a href="/" class="btn btn-primary btn-block">Quay lại trang chủ</a>
         </div>
     </div>
     

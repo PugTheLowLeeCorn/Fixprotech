@@ -49,7 +49,7 @@
                     <div class="row ">
                         <div class="col-12 mt-5">
                             <div class="alert alert-success" role="alert">
-                                Thank you for your order, the order has been confirmed successfully.
+                                Cảm ơn bạn đã đặt hàng tại FixProTech! Đơn hàng của bạn đã được tiếp nhận và đang
                             </div>
                         </div>
                     </div>

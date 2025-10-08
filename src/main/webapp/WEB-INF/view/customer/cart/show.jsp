@@ -53,7 +53,7 @@
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="/">Home</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Cart Details</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Thông tin giỏ hàng</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -61,20 +61,20 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Product</th>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">Price</th>
-                                            <th scope="col">Quantity</th>
-                                            <th scope="col">Inventory</th>
-                                            <th scope="col">Total Price</th>
-                                            <th scope="col">Handle</th>
-                                            <th scope="col">Status</th>
+                                            <th scope="col">Sản phẩm</th>
+                                            <th scope="col">Tên</th>
+                                            <th scope="col">Giá</th>
+                                            <th scope="col">Số lượng</th>
+                                            <th scope="col">Tồn kho</th>
+                                            <th scope="col">Tổng giá</th>
+                                            <th scope="col">Thao tác</th>
+                                            <th scope="col">Trạng thái</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <c:if test="${ empty cartDetails}">
                                             <tr>
-                                                <td colspan="8">There are no products in the cart</td>
+                                                <td colspan="8">Không có sản phẩm nào trong giỏ hàng</td>
                                             </tr>
                                         </c:if>
                                         <c:forEach var="cartDetail" items="${cartDetails}" varStatus="status">
@@ -150,7 +150,7 @@
                                                                 stock</span>
                                                         </c:when>
                                                         <c:otherwise>
-                                                            <span class="text-danger">Out of stock</span>
+                                                            <span class="text-danger">Hết hàng</span>
                                                         </c:otherwise>
                                                     </c:choose>
                                                 </td>
@@ -160,17 +160,17 @@
                                 </table>
                             </div>
                             <c:if test="${param.errorInventory != null}">
-                                <div class="my-2" style="color: red;">Order quantity exceeds inventory quantity.</div>
+                                <div class="my-2" style="color: red;">Số lượng đặt hàng vượt quá số lượng tồn kho.</div>
                             </c:if>
                             <c:if test="${not empty cartDetails}">
                                 <div class="mt-5 row g-4 justify-content-start">
                                     <div class="col-12 col-md-8">
                                         <div class="">
                                             <div class="p-4">
-                                                <h1 class="display-6 mb-4"><span class="fw-normal">Information
-                                                        Order</span></h1>
+                                                <h1 class="display-6 mb-4"><span class="fw-normal">Thông tin
+                                                        đơn hàng</span></h1>
                                                 <div class="d-flex justify-content-between mb-4">
-                                                    <h5 class="mb-0 me-4">Temporary calculation:</h5>
+                                                    <h5 class="mb-0 me-4">Tạm tính:</h5>
                                                     <p class="mb-0" data-cart-total-price="${totalPrice}">
                                                         <fmt:formatNumber type="number" value="${totalPrice}" />
                                                     </p>
@@ -178,7 +178,7 @@
                                             </div>
                                             <div
                                                 class="py-4 mb-4 border-top border-bottom d-flex justify-content-between">
-                                                <h5 class="mb-0 ps-4 me-4">Total amount</h5>
+                                                <h5 class="mb-0 ps-4 me-4">Tổng tiền</h5>
                                                 <p class="mb-0 pe-4" data-cart-total-price="${totalPrice}">
                                                     <fmt:formatNumber type="number" value="${totalPrice}" /> đ
                                                 </p>
@@ -197,7 +197,7 @@
                                                                     path="cartDetails[${status.index}].id" />
                                                             </div>
                                                             <div class="form-group">
-                                                                <label>Quantity:</label>
+                                                                <label>Số lượng:</label>
                                                                 <form:input class="form-control" type="text"
                                                                     value="${cartDetail.quantity}"
                                                                     path="cartDetails[${status.index}].quantity" />
@@ -207,7 +207,7 @@
                                                 </div>
                                                 <button
                                                     class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4">
-                                                    Payment Confirmation
+                                                    Xác nhận thanh toán
                                                 </button>
                                             </form:form>
                                         </div>

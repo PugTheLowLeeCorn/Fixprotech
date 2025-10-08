@@ -56,24 +56,24 @@
                 </c:if>
 
                 <div class="container py-5">
-                    <h2 class="mb-4">Checkout Wishlist</h2>
+                    <h2 class="mb-4">Chi tiết wishlist</h2>
 
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">Product</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Quantity</th>
-                                    <th scope="col">Total</th>
+                                    <th scope="col">Sản phẩm</th>
+                                    <th scope="col">Tên</th>
+                                    <th scope="col">Giá</th>
+                                    <th scope="col">Số lượng</th>
+                                    <th scope="col">Tổng</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <c:choose>
                                     <c:when test="${empty wishlist}">
                                         <tr>
-                                            <td colspan="5" class="text-center">Your wishlist is empty.</td>
+                                            <td colspan="5" class="text-center">Danh sách yêu thích của bạn đang trống.</td>
                                         </tr>
                                     </c:when>
                                     <c:otherwise>
@@ -105,9 +105,9 @@
 
                     <c:if test="${not empty wishlist}">
                         <div class="bg-light rounded p-4">
-                            <h4 class="mb-4">Order Summary</h4>
+                            <h4 class="mb-4">Tóm tắt đơn hàng</h4>
                             <div class="d-flex justify-content-between mb-3">
-                                <h5>Subtotal:</h5>
+                                <h5>Thành tiền:</h5>
                                 <p>
                                     <fmt:formatNumber type="number" value="${totalPrice}" /> đ
                                 </p>
@@ -125,7 +125,7 @@
                                     <input type="hidden" name="productIds" value="${product.id}" />
                                     <input type="hidden" name="quantities" value="1" />
                                 </c:forEach>
-                                <button type="submit" class="btn btn-primary w-100">Proceed to Checkout</button>
+                                <button type="submit" class="btn btn-primary w-100">Tiến hành thanh toán</button>
                             </form>
                         </div>
                     </c:if>

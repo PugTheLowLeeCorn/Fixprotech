@@ -45,18 +45,18 @@
 <body>
 <div class="form-gap"></div>
 <div class="container otp-container">
-    <h1 class="text-center">OTP Verification</h1>
-    <p class="text-center">Check your email and collect OTP to insert</p>
+    <h1 class="text-center">Xác thực OTP</h1>
+    <p class="text-center">Kiểm tra email của bạn và thu thập OTP để nhập</p>
     <form method="post" action="/authentication/enterRegisterOTP" modelAttribute="newOtpForm">
         <div class="form-group">
             <c:if test="${not empty message}">
                 <div class="my-2" style="color: red;">${message}</div>
             </c:if>
-            <label for="otp">Enter OTP</label>
-            <input type="text" id="otp" name="otp" placeholder="Enter OTP" class="form-control" required="required" />
+            <label for="otp">Nhập OTP</label>
+            <input type="text" id="otp" name="otp" placeholder="Nhập OTP" class="form-control" required="required" />
         </div>
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-        <button type="submit" class="btn btn-primary btn-block">OTP Confirmation</button>
+        <button type="submit" class="btn btn-primary btn-block">Xác thực OTP</button>
     </form>
 </div>
 

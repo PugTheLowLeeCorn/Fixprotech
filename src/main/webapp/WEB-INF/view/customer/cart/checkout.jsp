@@ -54,7 +54,7 @@
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="/">Home</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Payment information</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Thông tin thanh toán</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -71,9 +71,9 @@
                                     <div class="row">
                                         <!-- Thông tin người nhận -->
                                         <div class="col-md-6">
-                                            <h4>Receiver Information</h4>
+                                            <h4>Thông tin người nhận</h4>
                                             <div class="mb-3">
-                                                <label for="receiverName" class="form-label">Full Name:</label>
+                                                <label for="receiverName" class="form-label">Họ và tên:</label>
                                                 <input type="text" id="receiverName" name="receiverName"
                                                     class="form-control" required>
                                             </div>
@@ -83,19 +83,19 @@
                                                     class="form-control" required>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="receiverPhone" class="form-label">Phone Number:</label>
+                                                <label for="receiverPhone" class="form-label">Số điện thoại:</label>
                                                 <input type="tel" id="receiverPhone" name="receiverPhone"
                                                     class="form-control" required pattern="0[0-9]{9}"
                                                     oninvalid="this.setCustomValidity('Phone number must start with 0 and have 10 numbers')"
                                                     oninput="this.setCustomValidity('')">
                                             </div>
                                             <div class="mb-3">
-                                                <label for="receiverAddress" class="form-label">Address:</label>
+                                                <label for="receiverAddress" class="form-label">Địa chỉ:</label>
                                                 <input type="text" id="receiverAddress" name="receiverAddress"
                                                     class="form-control" required>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="Note" class="form-label">Note:</label>
+                                                <label for="Note" class="form-label">Ghi chú:</label>
                                                 <textarea id="Note" name="Note" class="form-control" rows="3"
                                                     required></textarea>
                                             </div>
@@ -103,13 +103,13 @@
 
                                         <!-- Thông tin đơn hàng -->
                                         <div class="col-md-6">
-                                            <h4>🛒 Order</h4>
+                                            <h4>🛒 Đơn hàng</h4>
                                             <table class="table">
                                                 <thead>
                                                     <tr>
-                                                        <th>Product</th>
-                                                        <th>Number</th>
-                                                        <th>Price</th>
+                                                        <th>Sản phẩm</th>
+                                                        <th>Số lượng</th>
+                                                        <th>Giá</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -129,7 +129,7 @@
 
                                             <!-- Hiển thị Tổng tiền -->
                                             <div class="mb-3 d-flex justify-content-between">
-                                                <h6>💰 Price:</h6>
+                                                <h6>💰 Giá gốc:</h6>
                                                 <p id="originalTotal" data-cart-total-price="${totalPrice}">
                                                     <fmt:formatNumber type="number" value="${totalPrice}" /> đ
                                                 </p>
@@ -137,36 +137,21 @@
 
                                             <!-- Phí vận chuyển -->
                                             <div class="mb-3 d-flex justify-content-between">
-                                                <h6>🚚 Shipping Fee:</h6>
+                                                <h6>🚚 Phí vận chuyển:</h6>
                                                 <p id="shippingFee">30,000 đ</p>
                                             </div>
 
                                             <!-- Nhập mã voucher -->
-                                            <div class="mb-3">
-                                                <label>🎟️ Add Voucher:</label>
-                                                <div class="input-group">
-                                                    <input type="text" class="form-control" id="voucherCodeInput"
-                                                        placeholder="Enter Voucher Code">
-                                                    <button type="button" class="btn btn-primary"
-                                                        id="checkVoucherBtn">Check</button>
-                                                </div>
-                                            </div>
                                             <!-- Kết quả voucher -->
                                             <div class="mb-3" id="voucherResult" style="display: none;">
                                                 <h6>✅ Voucher Found:</h6>
                                                 <p id="voucherTitle"></p>
-                                                <p><strong>Discount: </strong><span id="voucherDiscount"></span></p>
-                                            </div>
-
-                                            <!-- Giảm giá -->
-                                            <div class="mb-3 d-flex justify-content-between">
-                                                <h6>🎟️ Discount Amount:</h6>
-                                                <p id="discountAmount">0 đ</p>
+                                                <p><strong>Giảm giá: </strong><span id="voucherDiscount"></span></p>
                                             </div>
 
                                             <!-- Tổng cộng -->
                                             <div class="mb-3 d-flex justify-content-between">
-                                                <h5>💰 Total Price:</h5>
+                                                <h5>💰 Tổng cộng:</h5>
                                                 <h5 id="finalTotal">
                                                     <fmt:formatNumber type="number" value="${totalPrice + 30000}" /> đ
                                                 </h5>

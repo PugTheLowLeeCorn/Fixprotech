@@ -118,13 +118,13 @@ public class RegisterController {
 
         Session session = Session.getInstance(props, new jakarta.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("kienchung2107@gmail.com", "npre smsx qgfm zhbu");
+                return new PasswordAuthentication("munndangiu3113@gmail.com", "gjkn gtaf becz vpxj");
             }
         });
 
         try {
             MimeMessage message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("kienchung2107@gmail.com"));
+            message.setFrom(new InternetAddress("munndangiu3113@gmail.com"));
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
             message.setSubject("FixProTech - One-Time Password (OTP) Verification");
             message.setText("Dear Customer,\n\nYour One-Time Password (OTP) for registration is: " + otpValue +

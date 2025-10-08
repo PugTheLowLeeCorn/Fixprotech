@@ -142,10 +142,10 @@ uri="http://www.springframework.org/tags/form" %>
   <body>
     <div class="container">
       <div class="left-panel">
-        <h1>Welcome to<br />FixProTech!</h1>
+        <h1>Chào mừng bạn đến với<br />FixProTech!</h1>
       </div>
       <div class="right-panel">
-        <h3>Create Account</h3>
+        <h3>Tạo tài khoản</h3>
 
         <!-- Only display the error container if there are errors -->
         <c:if
@@ -157,18 +157,17 @@ uri="http://www.springframework.org/tags/form" %>
             </c:if>
             <c:if test="${param.exist != null}">
               <div class="error-message">
-                Email already registered. Please try to login.
+                Email đã được đăng ký. Vui lòng thử đăng nhập.
               </div>
             </c:if>
             <c:if test="${param.invalidphone != null}">
               <div class="error-message">
-                Phone number is already registered. Please use a different phone
-                number.
+                Số điện thoại đã được đăng ký. Vui lòng sử dụng số điện thoại khác.
               </div>
             </c:if>
             <c:if test="${not empty passwordMismatch}">
               <div class="error-message">
-                Password and Confirm Password must match.
+                Mật khẩu và Xác nhận Mật khẩu phải khớp.
               </div>
             </c:if>
           </div>
@@ -184,7 +183,7 @@ uri="http://www.springframework.org/tags/form" %>
             <form:input
               path="firstName"
               type="text"
-              placeholder="First Name"
+              placeholder="Họ"
               cssClass="form-control"
             />
             <form:errors path="firstName" cssClass="error-message" />
@@ -194,7 +193,7 @@ uri="http://www.springframework.org/tags/form" %>
             <form:input
               path="lastName"
               type="text"
-              placeholder="Last Name"
+              placeholder="Tên"
               cssClass="form-control"
             />
             <form:errors path="lastName" cssClass="error-message" />
@@ -215,7 +214,7 @@ uri="http://www.springframework.org/tags/form" %>
               path="password"
               type="password"
               id="password"
-              placeholder="Password"
+              placeholder="Mật khẩu"
               cssClass="form-control"
             />
             <i
@@ -231,7 +230,7 @@ uri="http://www.springframework.org/tags/form" %>
               path="confirmPassword"
               type="password"
               id="confirmPassword"
-              placeholder="Confirm Password"
+              placeholder="xác nhận mật khẩu"
               cssClass="form-control"
             />
             <i
@@ -246,7 +245,7 @@ uri="http://www.springframework.org/tags/form" %>
             <form:input
               path="phone"
               type="text"
-              placeholder="Phone Number"
+              placeholder="số điện thoại"
               cssClass="form-control"
             />
             <form:errors path="phone" cssClass="error-message" />
@@ -256,7 +255,7 @@ uri="http://www.springframework.org/tags/form" %>
             <form:input
               path="address"
               type="text"
-              placeholder="Address"
+              placeholder="Địa chỉ"
               cssClass="form-control"
             />
             <form:errors path="address" cssClass="error-message" />
@@ -268,13 +267,13 @@ uri="http://www.springframework.org/tags/form" %>
             value="${_csrf.token}"
           />
 
-          <button class="btn-register">Create Account</button>
+          <button class="btn-register">Tạo Tài Khoản</button>
         </form:form>
 
         <div class="form-footer">
           <div class="small">
-            <a href="/login">Already have an account? Login here</a><br /><br />
-            <a href="/">Click here to view HOME PAGE!</a>
+            <a href="/login">Đã có tài khoản? Đăng nhập tại đây</a><br /><br />
+            <a href="/">Nhấn vào đây để xem TRANG CHỦ!</a>
           </div>
         </div>
       </div>

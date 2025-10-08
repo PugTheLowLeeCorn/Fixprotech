@@ -54,20 +54,20 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th scope="col">Product</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Total Amount</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Complete Date</th>
-                    <th scope="col">Review Status</th>
+                    <th scope="col">Sản phẩm</th>
+                    <th scope="col">Tên</th>
+                    <th scope="col">Giá</th>
+                    <th scope="col">Số lượng</th>
+                    <th scope="col">Tổng cộng</th>
+                    <th scope="col">Trạng thái</th>
+                    <th scope="col">Ngày hoàn thành</th>
+                    <th scope="col">Trạng thái đánh giá</th>
                 </tr>
                 </thead>
                 <tbody>
                 <c:if test="${empty orders}">
                     <tr>
-                        <td colspan="8" class="text-center">No unrated orders found</ screams>
+                        <td colspan="8" class="text-center">Không tìm thấy đơn hàng nào chưa được đánh giá</td>
                     </tr>
                 </c:if>
                 <c:forEach var="order" items="${orders}">
@@ -115,8 +115,8 @@
                                 <td>${order.convertedCompleteDate}</td>
                                 <td>
                                     <a href="/customer/product-review/${orderDetail.id}"
-                                       class="btn btn-primary">Product Reviews</a>
-                                    <p>Status: <span style="color: red;">Not rated yet</span></p>
+                                       class="btn btn-primary">Đánh giá sản phẩm</a>
+                                    <p>Trạng thái: <span style="color: red;">Chưa được đánh giá</span></p>
                                 </td>
                             </tr>
                         </c:if>

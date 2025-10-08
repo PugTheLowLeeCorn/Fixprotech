@@ -38,9 +38,9 @@
 
 <body>
     <div class="out-of-stock-container">
-        <h1>Product is Out of Stock</h1>
-        <p>Sorry, some items in your cart are out of stock. Please remove them or choose other products.</p>
-        <a href="/cart" class="btn btn-danger btn-custom">Back to Cart</a>
+        <h1>Sản phẩm đã hết hàng</h1>
+        <p>Xin lỗi, một số mặt hàng trong giỏ hàng của bạn đã hết hàng. Vui lòng loại bỏ chúng hoặc chọn sản phẩm khác.</p>
+        <a href="/cart" class="btn btn-danger btn-custom">Quay lại giỏ hàng</a>
     </div>
 
     <!-- Bootstrap JS Bundle CDN -->

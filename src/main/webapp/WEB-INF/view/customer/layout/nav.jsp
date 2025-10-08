@@ -1,4 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!-- CSS riêng cho tab trong phần Order -->
 <style>
   .order-tab-wrapper .nav-tabs .nav-link {
@@ -32,7 +34,7 @@
         href="${pageContext.request.contextPath}/customer/order/tracking"
         role="tab"
       >
-        Order Tracking
+        Theo dõi đơn hàng
       </a>
     </li>
     <li class="nav-item">
@@ -41,7 +43,7 @@
         href="${pageContext.request.contextPath}/customer/order/history"
         role="tab"
       >
-        Order History
+        Lịch sử đơn hàng
       </a>
     </li>
     <li class="nav-item">
@@ -50,7 +52,7 @@
         href="${pageContext.request.contextPath}/customer/order/cancelled"
         role="tab"
       >
-        Cancelled Orders
+        Đơn hàng đã hủy
       </a>
     </li>
     <li class="nav-item">
@@ -59,7 +61,7 @@
         href="${pageContext.request.contextPath}/customer/order/rated"
         role="tab"
       >
-        Rated Orders
+        Đơn hàng đã đánh giá
       </a>
     </li>
     <li class="nav-item">
@@ -68,7 +70,7 @@
         href="${pageContext.request.contextPath}/customer/order/unrated"
         role="tab"
       >
-        Unrated Orders
+        Đơn hàng chưa đánh giá
       </a>
     </li>
   </ul>

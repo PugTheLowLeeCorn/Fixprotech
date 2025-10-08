@@ -27,7 +27,7 @@
                             <div class="col-md-6">
                                 <div class="card shadow-lg p-4">
                                     <div class="card-body text-center">
-                                        <h2 class="card-title mb-4">Create Order</h2>
+                                        <h2 class="card-title mb-4">Tạo đơn hàng</h2>
                                         <c:if test="${not empty error}">
                                             <div class="alert alert-danger">${error}</div>
                                         </c:if>
@@ -38,13 +38,13 @@
                                                         Goods</label>
                                                     <div class="col-md-8">
                                                         <select name="ordertype" id="ordertype" class="form-control">
-                                                            <option value="billpayment">Pay bills</option>
+                                                            <option value="billpayment">Thanh toán hóa đơn</option>
                                                         </select>
                                                     </div>
                                                 </div>
 
                                                 <div class="row mb-2">
-                                                    <label class="col-md-4 text-end fw-bold">Amount (VND)</label>
+                                                    <label class="col-md-4 text-end fw-bold">Số tiền (VND)</label>
                                                     <div class="col-md-8">
                                                         <input type="text" class="form-control"
                                                             value="<fmt:formatNumber value='${totalAmount}' type='number' groupingUsed='true' minFractionDigits='0' maxFractionDigits='0'/> VND"
@@ -55,8 +55,7 @@
                                                 </div>
 
                                                 <div class="row mb-2">
-                                                    <label for="orderInfo" class="col-md-4 text-end fw-bold">Order
-                                                        Information</label>
+                                                    <label for="orderInfo" class="col-md-4 text-end fw-bold">Thông tin đơn hàng</label>
                                                     <div class="col-md-8">
                                                         <input type="text" id="orderInfo" name="orderInfo"
                                                             value="${orderDetails}" readonly class="form-control"
@@ -65,8 +64,7 @@
                                                 </div>
 
                                                 <div class="row mb-2">
-                                                    <label for="address" class="col-md-4 text-end fw-bold">Receiver
-                                                        Address</label>
+                                                    <label for="address" class="col-md-4 text-end fw-bold">Địa chỉ người nhận</label>
                                                     <div class="col-md-8">
                                                         <input type="text" id="address" name="address"
                                                             class="form-control" value="${sessionScope.receiverAddress}"
@@ -75,8 +73,7 @@
                                                 </div>
 
                                                 <div class="row mb-2">
-                                                    <label for="name" class="col-md-4 text-end fw-bold">Receiver
-                                                        Name</label>
+                                                    <label for="name" class="col-md-4 text-end fw-bold">Tên người nhận</label>
                                                     <div class="col-md-8">
                                                         <input type="text" id="name" name="name" class="form-control"
                                                             value="${sessionScope.receiverName}" required>
@@ -84,15 +81,14 @@
                                                 </div>
 
                                                 <div class="row mb-2">
-                                                    <label for="phone" class="col-md-4 text-end fw-bold">Receiver
-                                                        Phone</label>
+                                                    <label for="phone" class="col-md-4 text-end fw-bold">Số điện thoại người nhận</label>
                                                     <div class="col-md-8">
                                                         <input type="text" id="phone" name="phone" class="form-control"
                                                             value="${sessionScope.receiverPhone}" required>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button type="submit" class="btn btn-primary btn-block">Pay</button>
+                                            <button type="submit" class="btn btn-primary btn-block">Thanh toán</button>
                                         </form>
                                     </div>
                                 </div>

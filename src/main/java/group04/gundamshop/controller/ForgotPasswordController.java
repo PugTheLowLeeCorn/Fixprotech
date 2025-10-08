@@ -63,14 +63,14 @@ public class ForgotPasswordController {
 
             Session session = Session.getInstance(props, new jakarta.mail.Authenticator() {
                 protected PasswordAuthentication getPasswordAuthentication() {
-                    return new PasswordAuthentication("kienchung2107@gmail.com", "npre smsx qgfm zhbu");
+                    return new PasswordAuthentication("munndangiu3113@gmail.com", "gjkn gtaf becz vpxj");
                 }
             });
 
             try {
                 // Compose the message
                 MimeMessage message = new MimeMessage(session);
-                message.setFrom(new InternetAddress("kienchung2107@gmail.com"));
+                message.setFrom(new InternetAddress("munndangiu3113@gmail.com"));
                 message.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
                 message.setSubject("Password Recovery OTP");
                 message.setText("Dear Customer,\n" +

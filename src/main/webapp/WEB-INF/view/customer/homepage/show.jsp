@@ -1,12 +1,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-            <html lang="en">
+            <html lang="vi">
 
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Home Page - Laptop Shop & Repair Service</title>
+                <title>Trang chủ - Cửa hàng Laptop & Dịch vụ sửa chữa</title>
 
                 <!-- Google Web Fonts -->
                 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -423,7 +423,7 @@
                     <div class="news-section">
                         <div class="news-header">
                             <i class="fas fa-bell news-icon"></i>
-                            <h3 class="news-title">Hot News & Updates</h3>
+                            <h3 class="news-title">Tin tức & Cập nhật nổi bật</h3>
                         </div>
                         <div class="news-ticker">
                             <ul class="list-unstyled d-inline-block mb-0">
@@ -441,8 +441,8 @@
                     <!-- Featured Products Section -->
                     <div class="products-section">
                         <div class="section-header">
-                            <h2 class="section-title">Featured Products</h2>
-                            <p class="section-subtitle">Handpicked products for you to explore</p>
+                            <h2 class="section-title">Sản phẩm nổi bật</h2>
+                            <p class="section-subtitle">Những lựa chọn đáng chú ý dành cho bạn</p>
                         </div>
                         
                         <div class="products-grid">
@@ -472,7 +472,7 @@
                                                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                                                         <button type="submit" class="btn-add-cart">
                                                             <i class="fas fa-shopping-cart"></i>
-                                                            Add to Cart
+                                                            Thêm vào giỏ
                                                         </button>
                                                     </form>
                                                 </div>
@@ -520,7 +520,7 @@
                                                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                                                             <button type="submit" class="btn-add-cart">
                                                                 <i class="fas fa-shopping-cart"></i>
-                                                                Add to Cart
+                                                                Thêm vào giỏ
                                                             </button>
                                                         </form>
                                                     </div>

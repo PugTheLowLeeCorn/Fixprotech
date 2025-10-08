@@ -72,7 +72,7 @@
                     </c:if>
 
                     <div class="container py-5">
-                        <h2 class="mb-4">Your Wishlist</h2>
+                        <h2 class="mb-4">Danh sách yêu thích của bạn</h2>
 
                         <!-- Bọc toàn bộ bảng wishlist trong 1 div có id để AJAX thay thế -->
                         <div id="wishlist-container">
@@ -83,11 +83,10 @@
                                         <div class="wishlist-empty-icon">
                                             <i class="fa fa-heart-o"></i>
                                         </div>
-                                        <h3 class="wishlist-empty-title">Your wishlist is empty</h3>
-                                        <p class="wishlist-empty-text">Discover and save your favorite Gundam models for
-                                            later</p>
+                                        <h3 class="wishlist-empty-title">Danh sách yêu thích của bạn đang trống</h3>
+                                        <p class="wishlist-empty-text">khám phá thêm các sản phẩm khác của chúng tôi</p>
                                         <a href="/products" class="btn btn-primary">
-                                            <i class="fa fa-shopping-cart me-2"></i> Explore Products
+                                            <i class="fa fa-shopping-cart me-2"></i> Tiếp tục mua sắm
                                         </a>
                                     </div>
                                 </c:when>
@@ -97,10 +96,10 @@
                                         <table class="table table-bordered">
                                             <thead class="thead-dark">
                                                 <tr>
-                                                    <th scope="col">Product</th>
-                                                    <th scope="col">Name</th>
-                                                    <th scope="col">Price</th>
-                                                    <th scope="col">Actions</th>
+                                                    <th scope="col">Sản phẩm</th>
+                                                    <th scope="col">Tên</th>
+                                                    <th scope="col">Giá</th>
+                                                    <th scope="col">Hành động</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -134,16 +133,16 @@
                                                                 <input type="hidden" name="${_csrf.parameterName}"
                                                                     value="${_csrf.token}" />
                                                                 <button type="submit" class="btn btn-danger btn-sm">
-                                                                    <i class="fa fa-trash me-1"></i> Remove
+                                                                    <i class="fa fa-trash me-1"></i> Xoá
                                                                 </button>
                                                             </form>
 
-                                                            <!-- Modified: Add to Cart button that also removes from wishlist -->
+                                                            <!-- Nút Thêm vào giỏ đồng thời xoá khỏi danh sách yêu thích -->
                                                             <button
                                                                 onclick="addToCartAndRemoveFromWishlist('${product.id}')"
                                                                 class="btn btn-primary btn-sm"
                                                                 style="margin-left: 5px;">
-                                                                <i class="fa fa-shopping-cart me-1"></i> Add to cart
+                                                                <i class="fa fa-shopping-cart me-1"></i> Thêm vào giỏ
                                                             </button>
 
                                                         </td>

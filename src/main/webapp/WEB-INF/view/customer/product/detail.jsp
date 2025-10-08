@@ -512,7 +512,7 @@
                                             </div>
                                             
                                             <div class="product-price">
-                                                <span class="price-label">Price:</span>
+                                                <span class="price-label">Giá:</span>
                                                 <fmt:formatNumber type="number" value="${product.price}" /> đ
                                             </div>
                                             
@@ -547,14 +547,14 @@
                                                             </button>
                                                         </div>
 
-                                                        <!-- Add to Cart Form -->
+                                                        <!-- Form thêm vào giỏ hàng -->
                                                         <form action="/add-product-from-view-detail" method="post" style="display: inline;">
                                                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                                                             <input type="hidden" name="id" value="${product.id}" />
                                                             <input type="hidden" name="quantity" id="cartQuantity" value="1" />
                                                             <button type="submit" class="btn-primary-custom">
                                                                 <i class="fas fa-shopping-cart"></i>
-                                                                Add to Cart
+                                                                Thêm vào giỏ
                                                             </button>
                                                         </form>
 
@@ -564,14 +564,14 @@
                                                             <input type="hidden" name="id" value="${product.id}" />
                                                             <button type="submit" class="btn-secondary-custom">
                                                                 <i class="fas fa-heart"></i>
-                                                                Add to Wishlist
+                                                                Thêm vào yêu thích
                                                             </button>
                                                         </form>
                                                     </c:when>
                                                     <c:otherwise>
                                                         <button class="btn-primary-custom btn-disabled" disabled>
                                                             <i class="fas fa-times-circle"></i>
-                                                            Out of Stock
+                                                            Hết hàng
                                                         </button>
                                                     </c:otherwise>
                                                 </c:choose>
@@ -584,7 +584,7 @@
                             <!-- Product Details Tabs -->
                             <div class="product-tabs">
                                 <div class="tab-header">
-                                    <h3 class="tab-title">Product Details</h3>
+                                    <h3 class="tab-title">Chi tiết sản phẩm</h3>
                                 </div>
                                 <div class="tab-content">
                                     <p class="tab-description">
@@ -593,19 +593,19 @@
                                     
                                     <div class="product-specs">
                                         <div class="spec-item">
-                                            <div class="spec-label">Material</div>
+                                            <div class="spec-label">Chất liệu</div>
                                             <div class="spec-value">${product.material}</div>
                                         </div>
                                         <div class="spec-item">
-                                            <div class="spec-label">Category</div>
+                                            <div class="spec-label">Danh mục</div>
                                             <div class="spec-value">${product.category.name}</div>
                                         </div>
                                         <div class="spec-item">
-                                            <div class="spec-label">Brand</div>
+                                            <div class="spec-label">Thương hiệu</div>
                                             <div class="spec-value">${product.factory.name}</div>
                                         </div>
                                         <div class="spec-item">
-                                            <div class="spec-label">Stock</div>
+                                            <div class="spec-label">Số lượng</div>
                                             <div class="spec-value">${product.quantity} units</div>
                                         </div>
                                     </div>
@@ -615,7 +615,7 @@
                             <!-- Reviews Section -->
                             <div class="reviews-section">
                                 <div class="reviews-header">
-                                    <h3 class="reviews-title">Customer Reviews</h3>
+                                    <h3 class="reviews-title">Đánh giá của khách hàng</h3>
                                     <span class="reviews-count">${reviews.size()} reviews</span>
                                 </div>
                                 <div class="reviews-content">
@@ -643,7 +643,7 @@
                                                             </c:when>
                                                             <c:otherwise>
                                                                 <span class="review-hidden">
-                                                                    This review has been hidden due to inappropriate content.
+                                                                    Bình luận này đã bị ẩn bởi quản trị viên.
                                                                 </span>
                                                             </c:otherwise>
                                                         </c:choose>
@@ -654,7 +654,7 @@
                                         <c:otherwise>
                                             <div class="text-center py-5">
                                                 <i class="fas fa-comments fa-3x text-muted mb-3"></i>
-                                                <p class="text-muted">No reviews yet. Be the first to review this product!</p>
+                                                <p class="text-muted">Chưa có đánh giá nào. Hãy là người đầu tiên đánh giá sản phẩm này!</p>
                                             </div>
                                         </c:otherwise>
                                     </c:choose>

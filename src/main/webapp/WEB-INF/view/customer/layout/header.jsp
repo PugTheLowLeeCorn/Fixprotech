@@ -223,29 +223,23 @@
                     <div class="navbar-nav align-items-center">
                         <li class="nav-item logo-item">
                             <a href="/" class="navbar-brand d-flex align-items-center">
-                                <img class="nav-logo me-2" src="/client/img/logo.jpg" alt="Laptop Shop Logo">
-                                <span class="d-none d-md-block">Laptop Shop</span>
+                                <img class="nav-logo me-2" src="/client/img/logo.jpg" alt="Logo Cửa Hàng Laptop">
+                                <span class="d-none d-md-block">Cửa Hàng Laptop</span>
                             </a>
                         </li>
                         
                         <!-- Search Form -->
                         <form action="/search" method="get" class="nav-item search-bar d-flex" id="searchForm">
-                            <input class="nav-search" type="text" name="query" id="searchInput" placeholder="Search laptops, services...">
+                            <input class="nav-search" type="text" name="query" id="searchInput" placeholder="Tìm kiếm laptop, dịch vụ...">
                             <button type="submit" class="btn p-0 ms-2" style="background: none; border: none;">
                                 <i class="fas fa-search fa-lg text-primary"></i>
                             </button>
                         </form>
                         
-                        <a href="/booking/create" class="nav-item nav-link">Repair Service</a>
-                        <a href="/news" class="nav-item nav-link">News</a>
-                        <a href="/contact/new" class="nav-item nav-link">Contact</a>
-                        <a href="/aboutus" class="nav-item nav-link">About Us</a>
-                        <a href="/voucher/all" class="nav-item nav-link">Vouchers</a>
-                        
-                        <!-- Dropdown Category -->
+                        <!-- Dropdown Category (Danh mục) -->
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                                Categories
+                                Danh mục
                             </a>
                             <ul class="dropdown-menu">
                                 <c:forEach var="category" items="${categories}">
@@ -253,12 +247,16 @@
                                 </c:forEach>
                             </ul>
                         </div>
+
+                        <a href="/booking/create" class="nav-item nav-link">Dịch vụ sửa chữa</a>
+                        <a href="/news" class="nav-item nav-link">Tin tức</a>
+                        <a href="/contact/new" class="nav-item nav-link">Liên hệ</a>
                     </div>
                     
                     <div class="user-actions">
                         <c:if test="${not empty pageContext.request.userPrincipal}">
                             <!-- Shopping Cart -->
-                            <a href="/cart" class="action-icon" title="Shopping Cart">
+                            <a href="/cart" class="action-icon" title="Giỏ hàng">
                                 <i class="fa fa-shopping-bag"></i>
                                 <span class="notification-badge cart-badge" id="sumCart">
                                     ${sessionScope.sum}
@@ -266,7 +264,7 @@
                             </a>
                             
                             <!-- Wishlist -->
-                            <a href="/wishlist" class="action-icon" title="Wishlist">
+                            <a href="/wishlist" class="action-icon" title="Yêu thích">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>
                                     <path d="M12 7C11.17 7 10.5 7.67 10.5 8.5C10.5 9.11 10.04 10.59 12 12.5C13.96 10.59 13.5 9.11 13.5 8.5C13.5 7.67 12.83 7 12 7Z"></path>
@@ -278,7 +276,7 @@
                             
                             <!-- Contact Reply Notification -->
                             <c:if test="${replyNotificationCount != null && replyNotificationCount > 0}">
-                                <a href="/contact/list" class="action-icon" title="Contact Replies">
+                                <a href="/contact/list" class="action-icon" title="Phản hồi liên hệ">
                                     <i class="fas fa-envelope"></i>
                                     <span class="notification-badge">
                                         ${replyNotificationCount}
@@ -297,26 +295,23 @@
                                         <p class="user-name"><c:out value="${sessionScope.username}" /></p>
                                     </li>
                                     <li><a class="dropdown-item" href="/customer/profile/${sessionScope.id}">
-                                        <i class="fas fa-user-cog me-2"></i>Account Management
+                                        <i class="fas fa-user-cog me-2"></i>Quản lý tài khoản
                                     </a></li>
                                     <li><a class="dropdown-item" href="/customer/order/tracking">
-                                        <i class="fas fa-shopping-cart me-2"></i>Order Management
+                                        <i class="fas fa-shopping-cart me-2"></i>Quản lý đơn hàng
                                     </a></li>
                                     <li><a class="dropdown-item" href="/booking/history">
-                                        <i class="fas fa-tools me-2"></i>Repair History
+                                        <i class="fas fa-tools me-2"></i>Lịch sử sửa chữa
                                     </a></li>
                                     <li><a class="dropdown-item" href="/customer/order/history">
-                                        <i class="fas fa-history me-2"></i>Purchase History
-                                    </a></li>
-                                    <li><a class="dropdown-item" href="/customer/changepass/pass">
-                                        <i class="fas fa-key me-2"></i>Change Password
+                                        <i class="fas fa-history me-2"></i>Lịch sử mua hàng
                                     </a></li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li><form id="logoutForm" action="/logout" method="post" style="display:none;">
                                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                                     </form>
                                     <a class="dropdown-item" href="#" onclick="document.getElementById('logoutForm').submit(); return false;">
-                                        <i class="fas fa-sign-out-alt me-2"></i>Logout
+                                        <i class="fas fa-sign-out-alt me-2"></i>Đăng xuất
                                     </a>
                                     </li>
                                 </ul>
@@ -324,10 +319,10 @@
                         </c:if>
                         
                         <c:if test="${empty pageContext.request.userPrincipal}">
-                            <a href="/login" class="action-icon" title="Login">
+                            <a href="/login" class="action-icon" title="Đăng nhập">
                                 <i class="fas fa-sign-in-alt"></i>
                             </a>
-                            <a href="/register" class="action-icon" title="Register">
+                            <a href="/register" class="action-icon" title="Đăng ký">
                                 <i class="fas fa-user-plus"></i>
                             </a>
                         </c:if>

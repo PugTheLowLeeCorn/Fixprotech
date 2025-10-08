@@ -327,7 +327,7 @@
                                                                     value="${_csrf.token}" />
                                                                 <button type="submit" class="btn-add-cart">
                                                                     <i class="fas fa-shopping-cart"></i>
-                                                                    Add to Cart
+                                                                    Thêm vào giỏ
                                                                 </button>
                                                             </form>
                                                         </c:when>

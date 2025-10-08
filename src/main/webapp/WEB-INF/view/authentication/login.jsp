@@ -276,28 +276,28 @@ uri="http://www.springframework.org/tags/form" %>
   <body>
     <div class="container">
       <div class="left-side">
-        <h2>Welcome to FixProTech laptop shop!</h2>
+        <h2>Chào mừng bạn đến với FixProTech!</h2>
       </div>
       <div class="right-side">
-        <h2>Login to account</h2>
+        <h2>Đăng nhập vào tài khoản</h2>
 
         <form method="post" action="/login">
           <c:if test="${param.error != null}">
-            <div class="msg error">Email or Password is incorrect</div>
+            <div class="msg error">Email hoặc Mật khẩu không chính xác</div>
           </c:if>
           <c:if test="${param.logout != null}">
-            <div class="msg success">Logout successful</div>
+            <div class="msg success">Đăng xuất thành công</div>
           </c:if>
           <c:if test="${param.resetsuccess != null}">
-            <div class="msg success">Password changed successfully</div>
+            <div class="msg success">Đổi mật khẩu thành công</div>
           </c:if>
           <c:if test="${param.locked != null}">
             <div class="msg warning">
-              Account locked. Please contact support.
+              Tài khoản bị khóa. Vui lòng liên hệ với bộ phận hỗ trợ.
             </div>
           </c:if>
           <c:if test="${param.registersuccess != null}">
-            <div class="msg success">Register successfully</div>
+            <div class="msg success">Đăng ký thành công</div>
           </c:if>
 
           <div class="input-group">
@@ -332,17 +332,17 @@ uri="http://www.springframework.org/tags/form" %>
           />
 
           <div class="input-group">
-            <button type="submit" class="login-btn">Login</button>
+            <button type="submit" class="login-btn">Đăng nhập</button>
           </div>
 
           <div class="links">
-            <a href="/forgotpassword">Forgot Password?</a>
+            <a href="/forgotpassword">Quên Mật Khẩu?</a>
           </div>
 
           <div class="register-link">
-            <span>Don't have an account? </span>
-            <a href="/register">Register here</a><br /><br />
-            <a href="/">Click here to view HOME PAGE!</a>
+            <span>Chưa có tài khoản? </span>
+            <a href="/register">Đăng ký tại đây</a><br /><br />
+            <a href="/">Nhấn vào đây để xem TRANG CHỦ!</a>
           </div>
         </form>
       </div>

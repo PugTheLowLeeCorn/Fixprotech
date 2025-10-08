@@ -1,9 +1,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ page import="java.time.format.DateTimeFormatter" %>
-<%@ page import="java.time.LocalDateTime" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@page import="java.time.format.DateTimeFormatter" %>
+<%@page import="java.time.LocalDateTime" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,8 +56,8 @@
                 <div>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="/">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">News Details</li>
+                            <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Chi tiết tin tức</li>
                         </ol>
                     </nav>
                 </div>
@@ -69,12 +69,15 @@
                                 <img src="${pageContext.request.contextPath}${news.imageUrl}" alt="News Image"
                                     class="img-fluid rounded mb-3" />
                             </c:if>
-<div class="news-content mb-3" style="white-space: pre-wrap; word-break: break-word; overflow-wrap: break-word; text-align: justify; font-size: 1.125rem; color: black; text-indent: 0;">
-    ${news.content}
-</div>
+
+                            <div class="news-content mb-3"
+                                style="white-space: pre-wrap; word-break: break-word; overflow-wrap: break-word; text-align: justify; font-size: 1.125rem; color: black; text-indent: 0;">
+                                ${news.content}
+                            </div>
+
                             <c:if test="${not empty news.referenceLinks}">
                                 <div class="mb-3">
-                                    <label>Reference Links:</label>
+                                    <label>Liên kết tham khảo:</label>
                                     <ul>
                                         <c:forEach var="link" items="${news.referenceLinks}">
                                             <li>
@@ -93,23 +96,37 @@
                                     </ul>
                                 </div>
                             </c:if>
+
+                            <!-- Meta info -->
                             <div class="meta-info text-muted mb-3" style="font-size: 0.875rem;">
                                 <%
                                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd 'at' HH:mm");
-                                    LocalDateTime createdAt = (LocalDateTime) pageContext.findAttribute("news").getClass().getMethod("getCreatedAt").invoke(pageContext.findAttribute("news"));
+
+                                    LocalDateTime createdAt = (LocalDateTime)
+                                        pageContext.findAttribute("news")
+                                            .getClass()
+                                            .getMethod("getCreatedAt")
+                                            .invoke(pageContext.findAttribute("news"));
                                     String createdAtFormatted = createdAt.format(formatter);
-                                    Object updatedAtObj = pageContext.findAttribute("news").getClass().getMethod("getUpdatedAt").invoke(pageContext.findAttribute("news"));
+
+                                    Object updatedAtObj = pageContext.findAttribute("news")
+                                            .getClass()
+                                            .getMethod("getUpdatedAt")
+                                            .invoke(pageContext.findAttribute("news"));
                                     String updatedAtFormatted = null;
                                     if (updatedAtObj != null) {
                                         updatedAtFormatted = ((LocalDateTime) updatedAtObj).format(formatter);
                                     }
                                 %>
-                                <div>Created At: <%= createdAtFormatted %></div>
+                                <div>Ngày Đăng: <%= createdAtFormatted %></div>
                                 <c:if test="${not empty news.updatedAt}">
-                                    <div>Updated At: <%= updatedAtFormatted %></div>
+                                    <div>Ngày cập nhật: <%= updatedAtFormatted %></div>
                                 </c:if>
                             </div>
-<a href="${pageContext.request.contextPath}/news" class="btn btn-primary border border-secondary rounded-pill px-4 py-2 mb-4" style="color: black; text-indent: 0;">← Return to News List</a>
+
+                            <a href="${pageContext.request.contextPath}/news"
+                                class="btn btn-primary border border-secondary rounded-pill px-4 py-2 mb-4"
+                                style="color: black; text-indent: 0;">← quay lại</a>
                         </div>
                     </div>
                 </div>
@@ -135,7 +152,6 @@
 
     <!-- Template Javascript -->
     <script src="/client/js/main.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js"></script>
 </body>
 

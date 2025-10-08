@@ -64,13 +64,14 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
     <main>
       <div class="container-fluid py-5 mt-5">
         <div class="container py-5">
-          <h2 class="mb-4 text-center">Cancel Order</h2>
+          <h2 class="mb-4 text-center">Hủy đơn hàng</h2>
           <div class="mt-5">
             <div class="row">
               <div class="col-12 mx-auto">
                 <hr />
                 <div class="alert alert-danger">
-                  Do you really want to cancel your order?
+                  Bạn có chắc chắn muốn hủy đơn hàng này không? Hành động này không thể
+                  hoàn tác.
                 </div>
 
                 <!-- Cancel Order Form -->
@@ -97,7 +98,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
                   <!-- Cancel reason -->
                   <div class="mb-3 col-12">
                     <label class="form-label" for="cancelReason">
-                      <strong>Reason for Canceling:</strong>
+                      <strong>Lý do:</strong>
                     </label>
                     <select
                       class="form-select"
@@ -106,15 +107,15 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
                       required
                     >
                       <option value="" disabled selected>
-                        Select a reason
+                        Chọn lý do
                       </option>
-                      <option value="out_of_stock">Out of Stock</option>
-                      <option value="price_issue">Price Issue</option>
-                      <option value="changed_mind">Changed My Mind</option>
-                      <option value="other">Other</option>
+                      <option value="out_of_stock">Hết hàng</option>
+                      <option value="price_issue">Vấn đề về giá</option>
+                      <option value="changed_mind">Thay đổi quyết định</option>
+                      <option value="other">Khác</option>
                     </select>
                     <small class="text-muted">
-                      Please select the reason for canceling the order.
+                      Làm ơn chọn lý do hủy đơn hàng.
                     </small>
                   </div>
 
@@ -125,7 +126,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
                     style="display: none"
                   >
                     <label class="form-label" for="otherReason">
-                      Please specify the reason:
+                      làm ơn cung cấp lý do khác:
                     </label>
                     <textarea
                       class="form-control"
@@ -138,12 +139,12 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
                   <!-- Submit and Back Buttons -->
                   <div class="text-center">
                     <button type="submit" class="btn btn-danger">
-                      Confirm Cancel
+                      Xác nhận hủy
                     </button>
                     <a
                       href="/customer/order/tracking"
                       class="btn btn-secondary ms-2"
-                      >Back</a
+                      >Quay lại</a
                     >
                   </div>
                 </form>

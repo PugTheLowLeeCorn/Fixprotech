@@ -48,7 +48,7 @@
                     <div class="row">
                         <div class="col-12 mt-5">
                             <div class="alert alert-danger text-center font-weight-bold" role="alert">
-                                Your order was not paid successfully. Please try again.
+                                Đơn hàng của bạn đã bị hủy hoặc thanh toán không thành công. Vui lòng thử lại.
                             </div>
                         </div>
                     </div>

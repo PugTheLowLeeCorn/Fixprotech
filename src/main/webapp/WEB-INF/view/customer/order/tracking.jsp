@@ -69,7 +69,7 @@
     <div class="container-fluid py-5 mt-5">
         <div class="container py-5">
             <jsp:include page="../layout/nav.jsp" />
-            <h2 class="mb-4">Track Shipping</h2>
+            <h2 class="mb-4">Theo dõi vận chuyển</h2>
 
             <!-- Display error message if present -->
             <c:if test="${not empty error}">
@@ -84,11 +84,11 @@
                         <table class="table table-bordered text-center">
                             <thead class="table-light">
                                 <tr>
-                                    <th>Product</th>
-                                    <th>Order Date</th>
-                                    <th>Total Amount</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
+                                    <th>Sản phẩm</th>
+                                    <th>Ngày đặt hàng</th>
+                                    <th>Tổng cộng</th>
+                                    <th>Trạng thái</th>
+                                    <th>Hành động</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -117,17 +117,17 @@
                                         <td>
                                             <c:if test="${order.status == 'PENDING'}">
                                                 <a href="/customer/order-delete/${order.id}"
-                                                   class="btn btn-danger">Cancel Order</a>
+                                                   class="btn btn-danger">Hủy đơn hàng</a>
                                             </c:if>
                                             <c:if test="${order.status == 'CONFIRM'}">
                                                 <a class="btn btn-secondary disabled cancel-disabled-btn" 
                                                    tabindex="-1" 
-                                                   aria-disabled="true">Cancel Order</a>
+                                                   aria-disabled="true">Hủy đơn hàng</a>
                                             </c:if>
                                             <c:if test="${order.status == 'SHIPPING'}">
                                                 <a class="btn btn-secondary disabled cancel-disabled-btn" 
                                                    tabindex="-1" 
-                                                   aria-disabled="true">Cancel Order</a>
+                                                   aria-disabled="true">Hủy đơn hàng</a>
                                             </c:if>
                                         </td>
                                     </tr>
@@ -139,8 +139,8 @@
 
                 <c:if test="${empty orders}">
                     <div class="no-orders">
-                        <h4>You don't have any orders being tracked.</h4>
-                        <p>Once you place an order, you can track its status here.</p>
+                        <h4>Bạn không có đơn hàng nào đang được theo dõi.</h4>
+                        <p>Khi bạn đặt hàng, bạn có thể theo dõi trạng thái của nó ở đây.</p>
                     </div>
                 </c:if>
             </c:if>

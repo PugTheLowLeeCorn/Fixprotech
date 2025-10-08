@@ -146,16 +146,16 @@
     </c:if>
 
     <div class="container-fluid py-5 mt-5">
-        <h2 class="mt-4">Advanced Product Search</h2>
+        <h2 class="mt-4">Tìm kiếm nâng cao</h2>
         <nav aria-label="breadcrumb" class="mb-3">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
                 <c:choose>
                     <c:when test="${empty param.factory && empty param.target && empty param.price && empty param.sort && empty param.scale && empty param.material && empty param.dimensionsMin && empty param.dimensionsMax && empty param.weightMin && empty param.weightMax}">
-                        <li class="breadcrumb-item active" aria-current="page">All products</li>
+                        <li class="breadcrumb-item active" aria-current="page">Tất cả sản phẩm</li>
                     </c:when>
                     <c:otherwise>
-                        <li class="breadcrumb-item active" aria-current="page">Advanced Search Results</li>
+                        <li class="breadcrumb-item active" aria-current="page">Kết quả tìm kiếm nâng cao</li>
                     </c:otherwise>
                 </c:choose>
             </ol>
@@ -163,7 +163,7 @@
         <div class="search-container">
             <div class="filters-sidebar">
                 <div>
-                    <div class="mb-2"><b>Brand</b></div>
+                    <div class="mb-2"><b>Nhà sản xuất</b></div>
                     <c:forEach var="factory" items="${factories}">
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="checkbox"
@@ -183,49 +183,49 @@
                             for="target-${target.id}">${target.name}</label>
                     </div>
                     </c:forEach>
-                    <div class="mb-2"><b>Prices</b></div>
+                    <div class="mb-2"><b>Giá</b></div>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="checkbox" id="price-2"
                             value="duoi-10-trieu" name="price"
                             <c:if test="${selectedPrices != null && selectedPrices.contains('duoi-10-trieu')}">checked</c:if>>
-                        <label class="form-check-label" for="price-2">Under 10 million</label>
+                        <label class="form-check-label" for="price-2">Dưới 10 triệu</label>
                     </div>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="checkbox" id="price-3"
                             value="10-15-trieu" name="price"
                             <c:if test="${selectedPrices != null && selectedPrices.contains('10-15-trieu')}">checked</c:if>>
-                        <label class="form-check-label" for="price-3">Between 10 - 15 million</label>
+                        <label class="form-check-label" for="price-3">Giữa 10 - 15 triệu</label>
                     </div>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="checkbox" id="price-4"
                             value="15-20-trieu" name="price"
                             <c:if test="${selectedPrices != null && selectedPrices.contains('15-20-trieu')}">checked</c:if>>
-                        <label class="form-check-label" for="price-4">Between 15 - 20 million</label>
+                        <label class="form-check-label" for="price-4">Giữa 15 - 20 triệu</label>
                     </div>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="checkbox" id="price-5"
                             value="tren-20-trieu" name="price"
                             <c:if test="${selectedPrices != null && selectedPrices.contains('tren-20-trieu')}">checked</c:if>>
-                        <label class="form-check-label" for="price-5">Above 20 million</label>
+                        <label class="form-check-label" for="price-5">Trên 20 triệu</label>
                     </div>
-                    <div class="mb-2"><b>Sorting</b></div>
+                    <div class="mb-2"><b>Sắp xếp</b></div>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" id="sort-1"
                             value="priceAsc" name="sort"
                             <c:if test="${sort == 'priceAsc'}">checked</c:if>>
-                        <label class="form-check-label" for="sort-1">Price increase</label>
+                        <label class="form-check-label" for="sort-1">Tăng dần theo giá</label>
                     </div>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" id="sort-2"
                             value="priceDesc" name="sort"
                             <c:if test="${sort == 'priceDesc'}">checked</c:if>>
-                        <label class="form-check-label" for="sort-2">Price decrease</label>
+                        <label class="form-check-label" for="sort-2">Giảm dần theo giá</label>
                     </div>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" id="sort-3"
                             value="priceNone" name="sort"
                             <c:if test="${sort == null || sort == 'priceNone'}">checked</c:if>>
-                        <label class="form-check-label" for="sort-3">Non sorting</label>
+                        <label class="form-check-label" for="sort-3">Không sắp xếp</label>
                     </div>
                     <div>
                         <button
@@ -254,7 +254,7 @@
                         </select>
                     </div>
                     <div class="filter-group">
-                        <label for="material">Material</label>
+                        <label for="material">Chất liệu</label>
                         <select name="material" id="material" multiple style="width: 100%;">
                             <c:forEach var="materialOption" items="${materials}">
                                 <option value="${materialOption}" <c:if test="${selectedMaterials != null && selectedMaterials.contains(materialOption)}">selected</c:if>>${materialOption}</option>
@@ -285,7 +285,7 @@
                         <input type="hidden" name="price" value="${price}" />
                     </c:forEach>
                     <input type="hidden" name="sort" value="${sort != null ? sort : 'priceNone'}" />
-                    <button type="submit" class="search-button">Search</button>
+                    <button type="submit" class="search-button">Tìm kiếm</button>
                 </form>
             </div>
         </div>
@@ -327,7 +327,7 @@
                                         </form>
                                     </c:when>
                                     <c:otherwise>
-                                        <button class="btn btn-secondary" disabled>Out of stock</button>
+                                        <button class="btn btn-secondary" disabled>Hết hàng</button>
                                     </c:otherwise>
                                 </c:choose>
                             </div>

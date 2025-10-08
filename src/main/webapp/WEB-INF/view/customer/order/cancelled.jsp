@@ -51,26 +51,26 @@
                     <div class="container py-5">
                         <div class="mb-3">
                             <jsp:include page="../layout/nav.jsp" />
-                            <h2>Cancelled Orders</h2>
+                            <h2>Hủy đơn hàng</h2>
                         </div>
 
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Product</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Price</th>
-                                        <th scope="col">Quantity</th>
-                                        <th scope="col">Total Amount</th>
-                                        <th scope="col">Status</th>
-                                        <th scope="col">Cancel Date</th>
+                                        <th scope="col">Sản phẩm</th>
+                                        <th scope="col">Tên</th>
+                                        <th scope="col">Giá</th>
+                                        <th scope="col">Số lượng</th>
+                                        <th scope="col">Tổng tiền</th>
+                                        <th scope="col">Trạng thái</th>
+                                        <th scope="col">Ngày hủy</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <c:if test="${empty orders}">
                                         <tr>
-                                            <td colspan="7" class="text-center">No cancelled orders found</td>
+                                            <td colspan="7" class="text-center">Không tìm thấy đơn hàng đã hủy</td>
                                         </tr>
                                     </c:if>
                                     <c:forEach var="order" items="${orders}">

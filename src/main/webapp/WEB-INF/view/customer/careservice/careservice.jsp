@@ -106,8 +106,8 @@
                 </div>
             </div>
             <script>
-                const API_KEY = "AIzaSyAoNIQi1XGH0MW8MvHOIt_zFXhre2aOS-I";
-                const API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + API_KEY;
+                const API_KEY = "AIzaSyCxGxWRqsbFdJsaMLhCs5CqF0m8T4Usm44";
+                const API_URL = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
 
                 // Gửi tin nhắn khi người dùng bấm nút hoặc nhấn Enter
                 function sendMessage() {

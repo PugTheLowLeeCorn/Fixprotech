@@ -46,18 +46,18 @@ uri="http://www.springframework.org/tags/form" prefix="form" %>
     <div class="container my-5 pt-5">
       <main>
         <div class="container-fluid px-4">
-          <h1 class="mt-4">Change Password</h1>
+          <h1 class="mt-4">Thay đổi mật khẩu</h1>
           <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item">
-              <a href="/customer/profile/${id}">Customer Profile</a>
+              <a href="/customer/profile/${id}">Hồ sơ khách hàng</a>
             </li>
-            <li class="breadcrumb-item active">Change Password</li>
+            <li class="breadcrumb-item active">Thay đổi mật khẩu</li>
           </ol>
 
           <div class="mt-5">
             <div class="row">
               <div class="col-md-6 col-12 mx-auto">
-                <h3>Update Your Password</h3>
+                <h3>Cập nhật mật khẩu của bạn</h3>
                 <hr />
 
                 <!-- Success and Error Messages -->
@@ -80,7 +80,7 @@ uri="http://www.springframework.org/tags/form" prefix="form" %>
                   class="row"
                 >
                   <div class="mb-3 col-12 position-relative">
-                    <label class="form-label">Current Password:</label>
+                    <label class="form-label">Mật khẩu hiện tại:</label>
                     <form:input
                       id="currentPassword"
                       type="password"
@@ -99,7 +99,7 @@ uri="http://www.springframework.org/tags/form" prefix="form" %>
                   </div>
 
                   <div class="mb-3 col-12 position-relative">
-                    <label class="form-label">New Password:</label>
+                    <label class="form-label">Mật khẩu mới:</label>
                     <form:input
                       id="newPassword"
                       type="password"
@@ -118,7 +118,7 @@ uri="http://www.springframework.org/tags/form" prefix="form" %>
                   </div>
 
                   <div class="mb-3 col-12 position-relative">
-                    <label class="form-label">Confirm New Password:</label>
+                    <label class="form-label">Xác nhận mật khẩu mới:</label>
                     <form:input
                       id="confirmPassword"
                       type="password"
@@ -164,7 +164,7 @@ uri="http://www.springframework.org/tags/form" prefix="form" %>
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="passwordChangeSuccessModalLabel">
-              Password Change Successful
+              Thay đổi mật khẩu thành công
             </h5>
             <button
               type="button"
@@ -174,8 +174,8 @@ uri="http://www.springframework.org/tags/form" prefix="form" %>
             ></button>
           </div>
           <div class="modal-body">
-            Your password has been successfully changed. Please log in again
-            with your new password.
+            Mật khẩu của bạn đã được thay đổi thành công. Vui lòng đăng nhập lại
+            bằng mật khẩu mới của bạn.
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-primary" id="redirectToLogin">

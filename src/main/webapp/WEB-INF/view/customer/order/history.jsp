@@ -50,27 +50,27 @@
         <div class="container py-5">
             <div class="mb-3">
                 <jsp:include page="../layout/nav.jsp" />
-                <h2>Order History</h2>
+                <h2>Lịch sử đơn hàng</h2>
             </div>
 
             <div class="table-responsive">
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">Product</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Total amount</th>
-                            <th scope="col">Status</th>
+                            <th scope="col">Sản phẩm</th>
+                            <th scope="col">Tên</th>
+                            <th scope="col">Giá</th>
+                            <th scope="col">Số lượng</th>
+                            <th scope="col">Tổng cộng</th>
+                            <th scope="col">Trạng thái</th>
                             <!-- <th scope="col">Complete Date</th> Thêm cột Complete Date -->
-                            <th scope="col">Evaluate</th>
+                            <th scope="col">Đánh giá</th>
                         </tr>
                     </thead>
                     <tbody>
                         <c:if test="${empty orders}">
                             <tr>
-                                <td colspan="8" class="text-center">No orders created</td>
+                                <td colspan="8" class="text-center">Không có đơn hàng nào</td>
                             </tr>
                         </c:if>
                         <c:forEach var="order" items="${orders}">
@@ -120,13 +120,13 @@
                                         <td>
                                             <c:if test="${order.status == 'COMPLETE'}">
                                                 <a href="/customer/product-review/${orderDetail.id}" 
-                                                    class="btn btn-primary">Product Reviews</a>
+                                                    class="btn btn-primary">Đánh giá sản phẩm</a>
                                                 <c:choose>
                                                     <c:when test="${orderDetail.productReview == null}">
-                                                        <p>Status: <span style="color: red;">Not rated yet</span></p>
+                                                        <p>Trạng thái: <span style="color: red;">Chưa được đánh giá</span></p>
                                                     </c:when>
                                                     <c:otherwise>
-                                                        <p>Status: <span style="color: blue;">Rated</span></p>
+                                                        <p>Trạng thái: <span style="color: blue;">Đã đánh giá</span></p>
                                                     </c:otherwise>
                                                 </c:choose>
                                             </c:if>

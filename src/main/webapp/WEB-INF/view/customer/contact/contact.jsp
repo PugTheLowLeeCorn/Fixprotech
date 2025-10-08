@@ -151,7 +151,7 @@
         <form:form method="POST" action="/contact/contact-success" modelAttribute="contact" class="row">
             <input type="hidden" name="_csrf" value="${_csrf.token}">
 <h2 class="col-12" style="position: relative; text-align: center; font-size: 2.5rem; font-weight: bold; margin-bottom: 20px;">
-    Send Contact
+    Gửi liên hệ
     <c:if test="${not empty replyNotificationCount && replyNotificationCount > 0}">
         <a href="/contact/list" class="notification-badge-send" style="cursor:pointer;"> 
             <i class="fas fa-bell"></i>${replyNotificationCount}
@@ -164,20 +164,20 @@
 
             <!-- Subject Name Field -->
             <div class="col-12">
-                <form:label for="subjectName" path="subjectName">Topic:</form:label>
+                <form:label for="subjectName" path="subjectName">Chủ đề:</form:label>
                 <form:input id="subjectName" path="subjectName" cssClass="form-control" cssErrorClass="form-control is-invalid" />
                 <form:errors path="subjectName" cssClass="invalid-feedback" />
             </div>
 
             <!-- Note Field -->
             <div class="col-12">
-                <form:label for="note" path="note">Note:</form:label>
+                <form:label for="note" path="note">Nội dung:</form:label>
                 <form:textarea id="note" path="note" cssClass="form-control" cssErrorClass="form-control is-invalid"></form:textarea>
                 <form:errors path="note" cssClass="invalid-feedback" />
             </div>
 
 <div class="col-12 send-contact-container" style="display: flex; align-items: center; gap: 8px;">
-    <button type="submit" style="flex-shrink: 0;">Send Contact</button>
+    <button type="submit" style="flex-shrink: 0;">Gửi liên hệ</button>
     
 </div>
         </form:form>

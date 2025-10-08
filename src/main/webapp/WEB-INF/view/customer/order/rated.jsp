@@ -47,27 +47,27 @@
     <div class="container py-5">
         <div class="mb-3">
             <jsp:include page="../layout/nav.jsp"/>
-            <h2>Rated Orders</h2>
+            <h2>Đánh giá sản phẩm</h2>
         </div>
 
         <div class="table-responsive">
             <table class="table">
                 <thead>
                 <tr>
-                    <th scope="col">Product</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Total Amount</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Complete Date</th>
-                    <th scope="col">Review Status</th>
+                    <th scope="col">Sản phẩm</th>
+                    <th scope="col">Tên</th>
+                    <th scope="col">Giá</th>
+                    <th scope="col">Số lượng</th>
+                    <th scope="col">Tổng cộng</th>
+                    <th scope="col">Trạng thái</th>
+                    <th scope="col">Ngày hoàn thành</th>
+                    <th scope="col">Trạng thái đánh giá</th>
                 </tr>
                 </thead>
                 <tbody>
                 <c:if test="${empty orders}">
                     <tr>
-                        <td colspan="8" class="text-center">No rated orders found</td>
+                        <td colspan="8" class="text-center">Không có đơn hàng nào</td>
                     </tr>
                 </c:if>
                 <c:forEach var="order" items="${orders}">
@@ -114,7 +114,7 @@
                                 <td>${order.status}</td>
                                 <td>${order.convertedCompleteDate}</td>
                                 <td>
-                                    <p>Status: <span style="color: blue;">Rated</span></p>
+                                    <p>Trạng thái: <span style="color: blue;">Đã đánh giá</span></p>
                                 </td>
                             </tr>
                         </c:if>

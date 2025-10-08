@@ -54,21 +54,21 @@ uri="http://www.springframework.org/tags/form" %>
 
   <body>
     <div class="card p-5" style="width: 100%; max-width: 500px">
-      <h3 class="text-center mb-4">🔒 Reset Your Password</h3>
+      <h3 class="text-center mb-4">🔒 Thay đổi mật khẩu</h3>
 
       <c:if test="${param.invalidpassword != null}">
         <div class="alert alert-danger">
-          Password and Confirm Password must match.
+          Mật khẩu và Xác nhận Mật khẩu phải khớp.
         </div>
       </c:if>
       <c:if test="${param.shortpassword != null}">
         <div class="alert alert-warning">
-          Password must be at least 6 characters long.
+          Mật khẩu phải có ít nhất 6 ký tự.
         </div>
       </c:if>
       <c:if test="${param.invalidspace != null}">
         <div class="alert alert-danger">
-          Password cannot contain only spaces or repeated spaces.
+          Mật khẩu không được chứa chỉ khoảng trắng hoặc khoảng trắng liên tiếp.
         </div>
       </c:if>
 
@@ -78,7 +78,7 @@ uri="http://www.springframework.org/tags/form" %>
         modelAttribute="resetPasswordForm"
       >
         <div class="mb-3 password-toggle">
-          <label for="password" class="form-label">New Password</label>
+          <label for="password" class="form-label">Mật khẩu mới</label>
           <i class="fa fa-eye" onclick="togglePassword('password')"></i>
           <form:input
             path="password"
@@ -92,7 +92,7 @@ uri="http://www.springframework.org/tags/form" %>
         </div>
 
         <div class="mb-3 password-toggle">
-          <label for="confPassword" class="form-label">Confirm Password</label>
+          <label for="confPassword" class="form-label">Xác nhận mật khẩu</label>
           <i class="fa fa-eye" onclick="togglePassword('confPassword')"></i>
           <form:input
             path="confPassword"
@@ -112,7 +112,7 @@ uri="http://www.springframework.org/tags/form" %>
         />
 
         <button type="submit" class="btn btn-success w-100">
-          Update Password
+          Cập nhật mật khẩu
         </button>
       </form:form>
     </div>

@@ -11,17 +11,17 @@
 
 <body>
     <div class="container mt-5">
-        <h2>Your Contact Messages</h2>
+        <h2>Danh sách liên hệ của bạn</h2>
         <c:if test="${empty contacts}">
-            <p>You have not sent any contact messages yet.</p>
+            <p>Bạn chưa gửi bất kỳ tin nhắn liên hệ nào.</p>
         </c:if>
         <c:if test="${not empty contacts}">
             <table class="table table-bordered">
                 <thead>
 <tr>
-                        <th>Subject</th>
-                        <th>Note</th>
-                        <th>Admin Reply</th>
+                        <th>Chủ đề</th>
+                        <th>Nội dung</th>
+                        <th>Phản hồi của Admin</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -36,10 +36,10 @@
                                         ${contact.replyMessage}
                                     </c:when>
                                     <c:when test="${contact.status}">
-                                        Thank you for contacting us, we will review your request
+                                        Cảm ơn bạn đã liên hệ với chúng tôi, chúng tôi sẽ xem xét yêu cầu của bạn
                                     </c:when>
                                     <c:otherwise>
-                                        No reply yet
+                                        Chưa có phản hồi
                                     </c:otherwise>
                                 </c:choose>
                             </td>
@@ -48,7 +48,7 @@
                 </tbody>
             </table>
         </c:if>
-        <a href="/" class="btn btn-primary mt-3">Back to Home</a>
+        <a href="/" class="btn btn-primary mt-3">Quay lại trang chủ</a>
     </div>
 </body>
 

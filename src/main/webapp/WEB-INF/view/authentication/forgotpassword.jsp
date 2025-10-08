@@ -110,15 +110,14 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-8 col-md-10">
                             <div class="forgot">
-                                <h2>Forgot your password?</h2>
-                                <p>Change your password in three easy steps. This will help keep your password secure!
+                                <h2>Quên mật khẩu?</h2>
+                                <p>Thay đổi mật khẩu của bạn chỉ trong ba bước đơn giản. Điều này sẽ giúp giữ cho mật khẩu của bạn được bảo mật!
                                 </p>
                                 <ol class="list-unstyled">
-                                    <li><span class="text-primary text-medium">1. </span>Enter your email address below.
+                                    <li><span class="text-primary text-medium">1. </span>Nhập địa chỉ email của bạn bên dưới.
                                     </li>
-                                    <li><span class="text-primary text-medium">2. </span>Our system will send OTP code
-                                        to your email.</li>
-                                    <li><span class="text-primary text-medium">3. </span>Enter OTP on the next page.
+                                    <li><span class="text-primary text-medium">2. </span>Hệ thống của chúng tôi sẽ gửi mã OTP đến email của bạn.</li>
+                                    <li><span class="text-primary text-medium">3. </span>Nhập OTP trên trang tiếp theo.
                                     </li>
                                 </ol>
                             </div>
@@ -127,14 +126,14 @@
                                 class="card mt-4" enctype="multipart/form-data">
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="email-for-pass">Enter Email:</label>
+                                        <label for="email-for-pass">Nhập Email:</label>
 
                                         <c:set var="errorEmail">
                                             <form:errors path="email" cssClass="invalid-feedback" />
                                         </c:set>
 
                                         <c:if test="${param.invalidemail != null}">
-                                            <div class="my-2" style="color: red;">Invalid email</div>
+                                            <div class="my-2" style="color: red;">Email không hợp lệ</div>
                                         </c:if>
 
                                         <form:input type="email"
@@ -143,7 +142,7 @@
                                         ${errorEmail}
 
                                         <small class="form-text text-muted">
-                                            Enter your registered email. We will then send an OTP email to this address.
+                                            Nhập email đã đăng ký của bạn. Chúng tôi sẽ gửi email OTP đến địa chỉ này.
                                         </small>
                                     </div>
                                 </div>
@@ -151,8 +150,8 @@
                                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Send OTP</button>
-                                    <button class="btn btn-danger"><a href="/login">Back</a></button>
+                                    <button type="submit" class="btn btn-primary">Gửi OTP</button>
+                                    <button class="btn btn-danger"><a href="/login">Quay lại</a></button>
                                 </div>
                             </form:form>
                         </div>

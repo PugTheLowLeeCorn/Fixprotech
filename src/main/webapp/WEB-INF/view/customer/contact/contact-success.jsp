@@ -119,8 +119,8 @@
 <body>
 <div class="container">
     <h2>${message}</h2>
-    <p>Thank you for contacting us</p> <!-- Thêm tên sản phẩm -->
-    <a href="/" class="btn btn-primary">Home</a>
+    <p>Cảm ơn bạn đã liên hệ với chúng tôi</p> <!-- Thêm tên sản phẩm -->
+    <a href="/" class="btn btn-primary">Trang chủ</a>
 </div>
 </body>
 <jsp:include page="../layout/footer.jsp" />

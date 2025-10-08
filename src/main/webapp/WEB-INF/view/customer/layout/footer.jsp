@@ -307,17 +307,17 @@
             <div class="footer-container">
                 <div class="footer-header">
                     <h2 class="footer-title">Laptop Shop & Repair Service</h2>
-                    <p class="footer-subtitle">Your trusted partner for laptops and professional repair services</p>
+                    <p class="footer-subtitle">Người bạn đồng hành đáng tin cậy của bạn trong lĩnh vực laptop và dịch vụ sửa chữa chuyên nghiệp</p>
                 </div>
 
                 <div class="footer-content">
                     <div class="footer-section">
                         <div class="footer-info">
-                            <h4>Company Information</h4>
+                            <h4>Thông tin công ty</h4>
                             <ul>
                                 <li>
                                     <i class="fas fa-map-marker-alt"></i>
-                                    FPT University, 600 Nguyen Van Cu Street, An Binh Ward, Ninh Kieu District, Can Tho City, Vietnam
+                                    Đại học FPT, 600 Nguyễn Văn Cừ, Phường An Bình, Quận Ninh Kiều, Thành phố Cần Thơ, Việt Nam
                                 </li>
                                 <li>
                                     <i class="fas fa-phone"></i>
@@ -346,45 +346,45 @@
                                 <div class="service-icon">
                                     <i class="fas fa-laptop"></i>
                                 </div>
-                                <span class="service-text">Laptop Sales</span>
+                                <span class="service-text">Laptop sales</span>
                             </div>
                             <div class="service-item">
                                 <div class="service-icon">
                                     <i class="fas fa-tools"></i>
                                 </div>
-                                <span class="service-text">Hardware Repair</span>
+                                <span class="service-text">Dịch vụ sửa chữa phần cứng</span>
                             </div>
                             <div class="service-item">
                                 <div class="service-icon">
                                     <i class="fas fa-shield-alt"></i>
                                 </div>
-                                <span class="service-text">Software Services</span>
+                                <span class="service-text">Dịch vụ phần mềm</span>
                             </div>
                             <div class="service-item">
                                 <div class="service-icon">
                                     <i class="fas fa-headset"></i>
                                 </div>
-                                <span class="service-text">Technical Support</span>
+                                <span class="service-text">Hỗ trợ kỹ thuật</span>
                             </div>
                             <div class="service-item">
                                 <div class="service-icon">
                                     <i class="fas fa-shipping-fast"></i>
                                 </div>
-                                <span class="service-text">Warranty Service</span>
+                                <span class="service-text">Dịch vụ bảo hành</span>
                             </div>
                         </div>
                     </div>
 
                     <div class="footer-section">
                         <div class="footer-contact">
-                            <h4>Contact Information</h4>
+                            <h4>Thông tin liên hệ</h4>
                             <div class="contact-item">
                                 <div class="contact-icon">
                                     <i class="fas fa-map-marker-alt"></i>
                                 </div>
                                 <div class="contact-details">
-                                    <h5>Address</h5>
-                                    <p>FPT University, Can Tho City</p>
+                                    <h5>Địa chỉ</h5>
+                                    <p>Đại học FPT, Thành phố Cần Thơ</p>
                                 </div>
                             </div>
                             <div class="contact-item">
@@ -392,7 +392,7 @@
                                     <i class="fas fa-phone"></i>
                                 </div>
                                 <div class="contact-details">
-                                    <h5>Phone</h5>
+                                    <h5>Điện thoại</h5>
                                     <p>091.849.999</p>
                                 </div>
                             </div>
@@ -410,8 +410,8 @@
                                     <i class="fas fa-clock"></i>
                                 </div>
                                 <div class="contact-details">
-                                    <h5>Working Hours</h5>
-                                    <p>Mon - Sat: 8:00 AM - 8:00 PM</p>
+                                    <h5>Giờ làm việc</h5>
+                                    <p>Thứ 2 - Thứ 7: 8:00 AM - 8:00 PM</p>
                                 </div>
                             </div>
                         </div>
@@ -419,7 +419,7 @@
                 </div>
 
                 <div class="footer-social">
-                    <h4 class="social-title">Follow Us</h4>
+                    <h4 class="social-title">Theo dõi chúng tôi</h4>
                     <div class="social-icons">
                         <a href="https://www.facebook.com" class="social-icon" title="Facebook">
                             <i class="fab fa-facebook-f"></i>
@@ -440,7 +440,7 @@
                 </div>
 
                 <div class="footer-bottom">
-                    <p>&copy; 2025 <span class="highlight">Laptop Shop & Repair Service</span>. All rights reserved. | Designed with ❤️ for our customers</p>
+                    <p>&copy; 2025 <span class="highlight">Laptop và Dịch vụ sửa chữa</span>. All rights reserved. | Designed with ❤️ for our customers</p>
                 </div>
             </div>
         </footer>
