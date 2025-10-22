@@ -37,7 +37,6 @@ public class UserService {
     @Autowired
     private EmailService emailService;
 
-    @Autowired
     public UserService(UserRepository userRepository, RoleRepository roleRepository) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;

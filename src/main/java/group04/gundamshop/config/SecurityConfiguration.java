@@ -37,7 +37,7 @@ public class SecurityConfiguration {
         }
 
         @Bean
-        public UserDetailsService userDetailsService(UserService userService) {
+        public UserDetailsService userDetailsService() {
                 // Cung cấp CustomUserDetailsService với UserService để load dữ liệu người dùng
                 // từ database
                 return new CustomUserDetailsService(userService);

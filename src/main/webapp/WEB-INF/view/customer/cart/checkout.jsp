@@ -173,12 +173,6 @@
                                                     class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4">
                                                     Cash on Delivery
                                                 </button>
-
-                                                <!-- Nút thanh toán online -->
-                                                <button type="submit" name="paymentMethod" value="online"
-                                                    class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-5">
-                                                    Online Payment
-                                                </button>
                                             </form>
                                         </div>
                                     </div>

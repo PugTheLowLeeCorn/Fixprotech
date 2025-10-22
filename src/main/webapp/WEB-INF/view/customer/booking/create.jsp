@@ -6,64 +6,156 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-            <title>Tin Tức</title>
-            <!-- Google Web Fonts -->
-            <link rel="preconnect" href="https://fonts.googleapis.com">
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-            <link
-                href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap"
-                rel="stylesheet">
+    <title>Tin Tức</title>
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet">
 
-            <!-- Icon Font Stylesheet -->
-            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
-            <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-            <!-- Libraries Stylesheet -->
-            <link href="/client/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-            <link href="/client/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <!-- Libraries Stylesheet -->
+    <link href="/client/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="/client/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/client/css/bootstrap.min.css" rel="stylesheet">
 
-            <!-- Customized Bootstrap Stylesheet -->
-            <link href="/client/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Template Stylesheet -->
+    <link href="/client/css/style.css" rel="stylesheet">
 
-            <!-- Template Stylesheet -->
-            <link href="/client/css/style.css" rel="stylesheet">
+    <meta name="_csrf" content="${_csrf.token}" />
+    <!-- default header name is X-CSRF-TOKEN -->
+    <meta name="_csrf_header" content="${_csrf.headerName}" />
 
-            <meta name="_csrf" content="${_csrf.token}" />
-            <!-- default header name is X-CSRF-TOKEN -->
-            <meta name="_csrf_header" content="${_csrf.headerName}" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.css" rel="stylesheet">
 
-            <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.css"
-                rel="stylesheet">
+    <!-- Embedded CSS to improve the design -->
     <style>
-        .booking-form {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            background: white;
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            padding-top: 100px;
         }
+
+        .booking-form {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background: white;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .booking-form:hover {
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .text-primary {
+            color: #007bff !important;
+        }
+
         .form-label {
             font-weight: 600;
-            color: #333;
+            color: #444;
+            margin-bottom: 10px;
         }
+
+        .form-control, .form-select {
+            border-radius: 10px;
+            padding: 12px 15px;
+            border: 1px solid #ced4da;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.25rem rgba(0,123,255,0.25);
+        }
+
         .btn-primary {
             background-color: #007bff;
             border-color: #007bff;
             padding: 12px 30px;
             font-weight: 600;
+            border-radius: 10px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
+
         .btn-primary:hover {
             background-color: #0056b3;
             border-color: #0056b3;
+            transform: translateY(-2px);
         }
+
+        .btn-outline-secondary {
+            border-color: #6c757d;
+            color: #6c757d;
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 10px;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn-outline-secondary:hover {
+            background-color: #6c757d;
+            color: white;
+            transform: translateY(-2px);
+        }
+
         .alert {
             border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .alert-danger {
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            color: #721c24;
+        }
+
+        .invalid-feedback {
+            font-size: 0.875rem;
+            color: #dc3545;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .text-center h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .text-center p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .row h5 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e9ecef;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .booking-form {
+                padding: 20px;
+            }
         }
     </style>
 </head>
-<body style="background-color: #f8f9fa; padding-top: 100px;">
+<body>
     
     <jsp:include page="../layout/header.jsp"/>
     

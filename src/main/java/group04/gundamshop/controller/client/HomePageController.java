@@ -6,26 +6,28 @@ import group04.gundamshop.domain.Order;
 import group04.gundamshop.domain.OrderDetail;
 import group04.gundamshop.domain.Product;
 import group04.gundamshop.domain.User;
+import group04.gundamshop.domain.dto.BookingForm;
+import group04.gundamshop.domain.dto.ServicePackageDto;
 import group04.gundamshop.service.CategoryService;
 import group04.gundamshop.service.NewsService;
 import group04.gundamshop.service.OrderService;
 import group04.gundamshop.service.ProductService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -55,11 +57,16 @@ public class HomePageController {
         List<Product> products = this.productService.fetchProducts();
         List<Category> categories = this.categoryService.getCategoryByStatus(true); // Lấy danh mục đang hoạt động
         List<News> newsList = this.newsService.getActiveNews(); // Lấy tin tức đang hoạt động từ NewsService
+        
+        // Tạo danh sách service packages mẫu
+        List<ServicePackageDto> servicePackages = createSampleServicePackages();
 
         // Thêm các danh sách vào model để hiển thị trong view
         model.addAttribute("products", products);
         model.addAttribute("categories", categories);
         model.addAttribute("newsList", newsList); // Thêm danh sách tin tức vào model
+        model.addAttribute("servicePackages", servicePackages);
+        model.addAttribute("bookingForm", new BookingForm());
 
         // Trả về view trang chủ
         return "customer/homepage/show";
@@ -190,6 +197,84 @@ public class HomePageController {
         News news = newsService.getNewsById(id); // Lấy trực tiếp News thay vì Optional<News>
         model.addAttribute("news", news);
         return "customer/news/detail"; // Hiển thị chi tiết tin tức
+    }
+    
+    // Phương thức xử lý đặt lịch sửa chữa
+    @PostMapping("/book-appointment")
+    public String bookAppointment(@Valid @ModelAttribute("bookingForm") BookingForm bookingForm,
+                                 BindingResult bindingResult,
+                                 RedirectAttributes redirectAttributes,
+                                 Model model) {
+        
+        if (bindingResult.hasErrors()) {
+            // Nếu có lỗi validation, load lại trang với dữ liệu và lỗi
+            List<Product> products = this.productService.fetchProducts();
+            List<Category> categories = this.categoryService.getCategoryByStatus(true);
+            List<News> newsList = this.newsService.getActiveNews();
+            List<ServicePackageDto> servicePackages = createSampleServicePackages();
+            
+            model.addAttribute("products", products);
+            model.addAttribute("categories", categories);
+            model.addAttribute("newsList", newsList);
+            model.addAttribute("servicePackages", servicePackages);
+            
+            return "customer/homepage/show";
+        }
+        
+        // Kiểm tra ngày hẹn không được trong quá khứ
+        if (bookingForm.getAppointmentDate().isBefore(LocalDate.now())) {
+            redirectAttributes.addFlashAttribute("error", "Ngày hẹn không được trong quá khứ");
+            return "redirect:/";
+        }
+        
+        // Kiểm tra giờ hẹn hợp lệ (8:00 - 18:00)
+        LocalTime appointmentTime = bookingForm.getAppointmentTime();
+        if (appointmentTime.isBefore(LocalTime.of(8, 0)) || appointmentTime.isAfter(LocalTime.of(18, 0))) {
+            redirectAttributes.addFlashAttribute("error", "Giờ hẹn phải trong khoảng 8:00 - 18:00");
+            return "redirect:/";
+        }
+        
+        // TODO: Lưu thông tin đặt lịch vào database
+        // Có thể tạo một Booking entity và service để lưu trữ
+        
+        redirectAttributes.addFlashAttribute("success", 
+            "Đặt lịch thành công! Chúng tôi sẽ liên hệ lại với bạn trong vòng 30 phút để xác nhận lịch hẹn.");
+        
+        return "redirect:/";
+    }
+    
+    // Helper method để tạo danh sách service packages mẫu
+    private List<ServicePackageDto> createSampleServicePackages() {
+        List<ServicePackageDto> packages = new ArrayList<>();
+        
+        // EXPRESS Package
+        ServicePackageDto expressPackage = new ServicePackageDto(
+            1L, "EXPRESS", "Sửa trong ngày", "fas fa-bolt", 
+            "Chẩn đoán nhanh,Sửa chữa cơ bản,Bảo hành 7 ngày",
+            "200000", "from", false
+        );
+        expressPackage.setSortOrder(1);
+        packages.add(expressPackage);
+        
+        // PREMIUM Package (Featured)
+        ServicePackageDto premiumPackage = new ServicePackageDto(
+            2L, "PREMIUM", "Bảo vệ dữ liệu", "fas fa-star",
+            "Backup dữ liệu,Sửa chữa toàn diện,Bảo hành 30 ngày",
+            "500000", "from", true
+        );
+        premiumPackage.setSortOrder(2);
+        packages.add(premiumPackage);
+        
+        // ENTERPRISE Package
+        ServicePackageDto enterprisePackage = new ServicePackageDto(
+            3L, "ENTERPRISE", "Cho doanh nghiệp", "fas fa-building",
+            "Bảo trì định kỳ,Hỗ trợ 24/7,Contract dài hạn",
+            null, "contact", false
+        );
+        enterprisePackage.setSortOrder(3);
+        packages.add(enterprisePackage);
+        
+        return packages;
     }
 
 }

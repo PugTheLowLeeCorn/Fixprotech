@@ -1,615 +1,561 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-        <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-            <html lang="vi">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fix ProTech - Đồng hành cùng công nghệ của bạn</title>
 
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Trang chủ - Cửa hàng Laptop & Dịch vụ sửa chữa</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/home.css">
 
-                <!-- Google Web Fonts -->
-                <link rel="preconnect" href="https://fonts.googleapis.com">
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-                <link
-                    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap"
-                    rel="stylesheet">
+    <!-- Embedded CSS to improve the design -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
 
-                <!-- Icon Font Stylesheet -->
-                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
-                <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
-                    rel="stylesheet">
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            background: linear-gradient(135deg, #007bff, #00c6ff);
+            color: white;
+            padding: 100px 0;
+            overflow: hidden;
+        }
 
-                <!-- Libraries Stylesheet -->
-                <link href="/client/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-                <link href="/client/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
 
-                <!-- Customized Bootstrap Stylesheet -->
-                <link href="/client/css/bootstrap.min.css" rel="stylesheet">
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
 
-                <!-- Template Stylesheet -->
-                <link href="/client/css/style.css" rel="stylesheet">
+        .hero-title {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
 
-                <meta name="_csrf" content="${_csrf.token}" />
-                <!-- default header name is X-CSRF-TOKEN -->
-                <meta name="_csrf_header" content="${_csrf.headerName}" />
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
 
-                <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.css"
-                    rel="stylesheet">
-                <style>
-                    /* Banner and Layout Fixes */
-                    #hero-banner {
-                        margin-top: -80px;
-                        padding-top: 80px;
-                        position: relative;
-                        z-index: 1;
-                    }
+        .hero-image img {
+            position: relative;
+            z-index: 2;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
 
-                    .carousel-caption {
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                        text-align: center;
-                        z-index: 10;
-                    }
+        .hero-image img:hover {
+            transform: scale(1.05);
+        }
 
-                    .carousel-caption h2 {
-                        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-                        margin-bottom: 20px;
-                    }
+        .cta-button {
+            background-color: #ffc107;
+            border: none;
+            padding: 15px 30px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
 
-                    .carousel-caption p {
-                        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-                        margin-bottom: 25px;
-                    }
+        .cta-button:hover {
+            background-color: #ffca2c;
+        }
 
-                    .carousel-caption .btn:hover {
-                        transform: translateY(-2px);
-                        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-                    }
+        /* About Section */
+        .about-section {
+            background-color: white;
+            padding: 80px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
 
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 40px;
+            position: relative;
+        }
 
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background: #007bff;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
 
-                    /* News Ticker */
-                    .news-section {
-                        background: white;
-                        border-radius: 20px;
-                        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-                        padding: 25px;
-                        margin-bottom: 50px;
-                    }
+        .about-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
 
-                    .news-header {
-                        display: flex;
-                        align-items: center;
-                        gap: 15px;
-                        margin-bottom: 20px;
-                        padding-bottom: 15px;
-                        border-bottom: 2px solid #f1f5f9;
-                    }
+        .about-card:hover {
+            transform: translateY(-10px);
+        }
 
-                    .news-icon {
-                        font-size: 1.8rem;
-                        color: #e53e3e;
-                        animation: pulse 2s infinite;
-                    }
+        .about-icon {
+            font-size: 3rem;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
 
-                    .news-title {
-                        font-size: 1.5rem;
-                        font-weight: 700;
-                        color: #2d3748;
-                        margin: 0;
-                    }
+        .about-description {
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
 
-                    .news-ticker {
-                        width: 100%;
-                        overflow: hidden;
-                        white-space: nowrap;
-                        box-sizing: border-box;
-                        position: relative;
-                        background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
-                        border-radius: 15px;
-                        padding: 15px 20px;
-                    }
+        /* Packages Section */
+        .packages-section {
+            padding: 80px 0;
+        }
 
-                    .news-ticker ul {
-                        display: inline-block;
-                        padding-left: 100%;
-                        animation: ticker 40s linear infinite;
-                        margin: 0;
-                        padding: 0;
-                    }
+        .package-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            height: 100%;
+            position: relative;
+            transition: box-shadow 0.3s;
+        }
 
-                    .news-ticker li {
-                        display: inline-block;
-                        margin-right: 60px;
-                        font-size: 1rem;
-                        color: #4a5568;
-                    }
+        .package-card:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
 
-                    .news-ticker a {
-                        color: inherit;
-                        text-decoration: none;
-                        transition: color 0.3s ease;
-                    }
+        .featured {
+            border: 2px solid #ffc107;
+        }
 
-                    .news-ticker a:hover {
-                        color: #667eea;
-                    }
+        .featured-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ffc107;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
 
-                    @keyframes ticker {
-                        0% { transform: translateX(100%); }
-                        100% { transform: translateX(-100%); }
-                    }
+        .package-icon {
+            font-size: 2.5rem;
+            color: #007bff;
+            margin-bottom: 15px;
+        }
 
-                    @keyframes pulse {
-                        0%, 100% { transform: scale(1); }
-                        50% { transform: scale(1.1); }
-                    }
+        .package-name {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
 
-                    /* Products Section */
-                    .products-section {
-                        padding: 60px 0;
-                    }
+        .package-description {
+            color: #6c757d;
+            margin-bottom: 20px;
+        }
 
-                    .section-header {
-                        text-align: center;
-                        margin-bottom: 50px;
-                    }
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
 
-                    .section-title {
-                        font-size: 2.5rem;
-                        font-weight: 800;
-                        color: #2d3748;
-                        margin-bottom: 15px;
-                    }
+        .feature-item i {
+            color: #28a745;
+            margin-right: 10px;
+        }
 
-                    .section-subtitle {
-                        font-size: 1.1rem;
-                        color: #6b7280;
-                        max-width: 600px;
-                        margin: 0 auto;
-                    }
+        .package-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #007bff;
+            margin: 20px 0;
+        }
 
-                    /* Product Grid */
-                    .products-grid {
-                        display: grid;
-                        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-                        gap: 30px;
-                        margin-bottom: 50px;
-                    }
+        .package-action .btn {
+            width: 100%;
+            transition: background-color 0.3s;
+        }
 
-                    .product-card {
-                        background: white;
-                        border-radius: 20px;
-                        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-                        overflow: hidden;
-                        transition: all 0.3s ease;
-                        position: relative;
-                    }
+        /* How It Works Section */
+        .how-it-works-section {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
 
-                    .product-card:hover {
-                        transform: translateY(-10px);
-                        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-                    }
+        .step-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: transform 0.3s;
+        }
 
-                    .product-image-container {
-                        position: relative;
-                        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-                        padding: 20px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        min-height: 250px;
-                    }
+        .step-card:hover {
+            transform: translateY(-10px);
+        }
 
-                    .product-image {
-                        max-width: 100%;
-                        max-height: 200px;
-                        object-fit: contain;
-                        border-radius: 15px;
-                        transition: transform 0.3s ease;
-                    }
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #007bff;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
 
-                    .product-card:hover .product-image {
-                        transform: scale(1.05);
-                    }
+        .step-icon {
+            font-size: 2.5rem;
+            color: #007bff;
+            margin-bottom: 15px;
+        }
 
-                    .product-category-badge {
-                        position: absolute;
-                        top: 15px;
-                        left: 15px;
-                        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                        color: white;
-                        padding: 8px 16px;
-                        border-radius: 20px;
-                        font-size: 0.8rem;
-                        font-weight: 600;
-                        text-transform: uppercase;
-                        letter-spacing: 0.5px;
-                    }
+        /* Booking Section */
+        .booking-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #007bff, #0056b3);
+        }
 
-                    .product-info {
-                        padding: 25px;
-                    }
+        .booking-cta .btn {
+            font-size: 1.5rem;
+            padding: 15px 40px;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
 
-                    .product-name {
-                        font-size: 1.1rem;
-                        font-weight: 700;
-                        color: #2d3748;
-                        margin-bottom: 10px;
-                        line-height: 1.4;
-                        display: -webkit-box;
-                        -webkit-line-clamp: 2;
-                        -webkit-box-orient: vertical;
-                        overflow: hidden;
-                    }
+        .booking-cta .btn:hover {
+            transform: scale(1.05);
+        }
 
-                    .product-name a {
-                        color: inherit;
-                        text-decoration: none;
-                        transition: color 0.3s ease;
-                    }
+        /* Trust Section */
+        .trust-section {
+            padding: 80px 0;
+            background: white;
+        }
 
-                    .product-name a:hover {
-                        color: #667eea;
-                    }
+        .trust-item {
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
 
-                    .product-description {
-                        color: #6b7280;
-                        font-size: 0.9rem;
-                        line-height: 1.5;
-                        margin-bottom: 15px;
-                        display: -webkit-box;
-                        -webkit-line-clamp: 2;
-                        -webkit-box-orient: vertical;
-                        overflow: hidden;
-                    }
+        .trust-item:hover {
+            transform: translateY(-10px);
+        }
 
-                    .product-price {
-                        font-size: 1.3rem;
-                        font-weight: 800;
-                        color: #e53e3e;
-                        margin-bottom: 20px;
-                        text-align: center;
-                    }
+        .trust-icon {
+            font-size: 2.5rem;
+            color: #28a745;
+            margin-bottom: 15px;
+        }
 
-                    .product-actions {
-                        display: flex;
-                        gap: 10px;
-                    }
+        /* Smooth Scroll */
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
 
-                    .btn-add-cart {
-                        flex: 1;
-                        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                        color: white;
-                        border: none;
-                        padding: 12px 20px;
-                        border-radius: 12px;
-                        font-weight: 600;
-                        font-size: 0.9rem;
-                        cursor: pointer;
-                        transition: all 0.3s ease;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        gap: 8px;
-                    }
+<body>
+    <!-- Include Header -->
+    <jsp:include page="../layout/header.jsp" />
 
-                    .btn-add-cart:hover {
-                        transform: translateY(-2px);
-                        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
-                        color: white;
-                    }
-
-                    /* Category Sections */
-                    .category-section {
-                        margin-bottom: 60px;
-                    }
-
-                    .category-header {
-                        display: flex;
-                        align-items: center;
-                        gap: 15px;
-                        margin-bottom: 30px;
-                        padding-bottom: 15px;
-                        border-bottom: 2px solid #f1f5f9;
-                    }
-
-                    .category-icon {
-                        font-size: 2rem;
-                        color: #667eea;
-                    }
-
-                    .category-title {
-                        font-size: 2rem;
-                        font-weight: 700;
-                        color: #2d3748;
-                        margin: 0;
-                    }
-
-                    /* Chat Icon */
-                    #chat-icon {
-                        position: fixed;
-                        bottom: 100px;
-                        right: 30px;
-                        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                        color: white;
-                        width: 60px;
-                        height: 60px;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        border-radius: 50%;
-                        cursor: pointer;
-                        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-                        font-size: 24px;
-                        transition: all 0.3s ease;
-                        z-index: 1000;
-                    }
-
-                    #chat-icon:hover {
-                        transform: scale(1.1);
-                        box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
-                    }
-
-                    /* Responsive Design */
-                    @media (max-width: 768px) {
-                        .hero-title {
-                            font-size: 2.5rem;
-                        }
-                        
-                        .hero-stats {
-                            flex-direction: column;
-                            gap: 20px;
-                        }
-                        
-                        .products-grid {
-                            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-                            gap: 20px;
-                        }
-                        
-                        .category-title {
-                            font-size: 1.5rem;
-                        }
-                    }
-
-                    /* Loading Animation */
-                    .loading {
-                        animation: pulse 1.5s infinite;
-                    }
-
-                    @keyframes pulse {
-                        0% { opacity: 1; }
-                        50% { opacity: 0.7; }
-                        100% { opacity: 1; }
-                    }
-                </style>
-            </head>
-
-            <body>
-
-                <!-- Spinner Start -->
-                <div id="spinner"
-                    class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
-                    <div class="spinner-grow text-primary" role="status"></div>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Fix ProTech - Đồng hành cùng công nghệ của bạn</h1>
+                        <p class="hero-subtitle">Dịch vụ sửa chữa laptop chuyên nghiệp tại Cần Thơ với giá minh bạch, đặt lịch online dễ dàng</p>
+                        <a href="#booking-section" class="btn btn-primary btn-lg cta-button smooth-scroll">
+                            <i class="fas fa-calendar-plus me-2"></i>Đặt lịch ngay
+                        </a>
+                    </div>
                 </div>
-                <!-- Spinner End -->
-
-                <jsp:include page="../layout/header.jsp" />
-
-                <!-- Flash Messages -->
-                <c:if test="${not empty success}">
-                    <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin: 20px; border-radius: 15px; border: none; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                        <i class="fas fa-check-circle me-2"></i>
-                        ${success}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <div class="col-lg-6">
+                    <div class="hero-image">
+                        <img src="${pageContext.request.contextPath}/images/product/1751344207244-lenovo ThinkPad.png" alt="Dịch vụ sửa chữa laptop chuyên nghiệp" class="img-fluid rounded-3 shadow-lg">
                     </div>
-                </c:if>
-                <c:if test="${not empty error}">
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin: 20px; border-radius: 15px; border: none; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                        <i class="fas fa-exclamation-circle me-2"></i>
-                        ${error}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Fix ProTech là gì?</h2>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="about-card text-center">
+                        <div class="about-icon">
+                            <i class="fas fa-wrench"></i>
+                        </div>
+                        <h4>Chuyên nghiệp</h4>
+                        <p>Đội ngũ kỹ thuật viên giàu kinh nghiệm</p>
                     </div>
-                </c:if>
-
-                <!-- Banner Section -->
-                <jsp:include page="../layout/banner.jsp" />
-
-                <div class="container">
-                    <!-- News Section -->
-                    <div class="news-section">
-                        <div class="news-header">
-                            <i class="fas fa-bell news-icon"></i>
-                            <h3 class="news-title">Tin tức & Cập nhật nổi bật</h3>
+                </div>
+                <div class="col-md-4">
+                    <div class="about-card text-center">
+                        <div class="about-icon">
+                            <i class="fas fa-clock"></i>
                         </div>
-                        <div class="news-ticker">
-                            <ul class="list-unstyled d-inline-block mb-0">
-                                <c:forEach var="news" items="${newsList}">
-                                    <li class="d-inline-block me-5">
-                                        <a href="/news/${news.id}">
-                                            ${news.title}
-                                        </a>
-                                    </li>
-                                </c:forEach>
-                            </ul>
-                        </div>
+                        <h4>Tiết kiệm thời gian</h4>
+                        <p>Đặt lịch online, chọn khung giờ</p>
                     </div>
-
-                    <!-- Featured Products Section -->
-                    <div class="products-section">
-                        <div class="section-header">
-                            <h2 class="section-title">Sản phẩm nổi bật</h2>
-                            <p class="section-subtitle">Những lựa chọn đáng chú ý dành cho bạn</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="about-card text-center">
+                        <div class="about-icon">
+                            <i class="fas fa-shield-alt"></i>
                         </div>
-                        
-                        <div class="products-grid">
-                            <c:set var="count" value="0" />
-                            <c:forEach var="product" items="${products}">
-                                <c:if test="${count < 4}">
-                                    <c:if test="${product.quantity > 0}">
-                                        <div class="product-card">
-                                            <div class="product-image-container">
-                                                <img src="/images/product/${product.image}"
-                                                     class="product-image" 
-                                                     alt="${product.name}">
-                                                <div class="product-category-badge">
-                                                    ${product.category.name}
-                                                </div>
-                                            </div>
-                                            <div class="product-info">
-                                                <h4 class="product-name">
-                                                    <a href="/product/${product.id}">${product.name}</a>
-                                                </h4>
-                                                <p class="product-description">${product.shortDesc}</p>
-                                                <div class="product-price">
-                                                    <fmt:formatNumber type="number" value="${product.price}" /> đ
-                                                </div>
-                                                <div class="product-actions">
-                                                    <form action="/add-product-to-cart/${product.id}" method="post" style="width: 100%;">
-                                                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-                                                        <button type="submit" class="btn-add-cart">
-                                                            <i class="fas fa-shopping-cart"></i>
-                                                            Thêm vào giỏ
-                                                        </button>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <c:set var="count" value="${count + 1}" />
-                                    </c:if>
-                                </c:if>
-                            </c:forEach>
-                        </div>
+                        <h4>Minh bạch</h4>
+                        <p>Báo giá rõ ràng trước khi sửa</p>
                     </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-12 text-center">
+                    <p class="about-description">
+                        Khác với các cửa hàng truyền thống, Fix ProTech mang đến trải nghiệm hiện đại với booking online,
+                        theo dõi tiến độ real-time và giá cả minh bạch ngay từ đầu.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    <!-- Category Products -->
-                    <c:forEach var="category" items="${categories}">
-                        <div class="category-section">
-                            <div class="category-header">
-                                <i class="fas fa-tags category-icon"></i>
-                                <h3 class="category-title">${category.name}</h3>
+    <!-- Service Packages Section -->
+    <section class="packages-section py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Chọn gói dịch vụ phù hợp với bạn</h2>
+                </div>
+            </div>
+            <div class="row g-4">
+                <c:forEach var="servicePackage" items="${servicePackages}" varStatus="status">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="package-card ${servicePackage.isFeatured ? 'featured' : ''}">
+                            <c:if test="${servicePackage.isFeatured}">
+                                <div class="featured-badge">
+                                    <i class="fas fa-star"></i> Phổ biến
+                                </div>
+                            </c:if>
+                            <div class="package-header">
+                                <div class="package-icon">
+                                    <i class="${servicePackage.icon}"></i>
+                                </div>
+                                <h3 class="package-name">${servicePackage.name}</h3>
+                                <p class="package-description">${servicePackage.description}</p>
                             </div>
-                            
-                            <div class="products-grid">
-                                <c:set var="count" value="0" />
-                                <c:forEach var="product" items="${category.products}">
-                                    <c:if test="${count < 4}">
-                                        <c:if test="${product.quantity > 0}">
-                                            <div class="product-card">
-                                                <div class="product-image-container">
-                                                    <img src="/images/product/${product.image}"
-                                                         class="product-image" 
-                                                         alt="${product.name}">
-                                                    <div class="product-category-badge">
-                                                        ${category.name}
-                                                    </div>
-                                                </div>
-                                                <div class="product-info">
-                                                    <h4 class="product-name">
-                                                        <a href="/product/${product.id}">${product.name}</a>
-                                                    </h4>
-                                                    <p class="product-description">${product.shortDesc}</p>
-                                                    <div class="product-price">
-                                                        <fmt:formatNumber type="number" value="${product.price}" /> đ
-                                                    </div>
-                                                    <div class="product-actions">
-                                                        <form action="/add-product-to-cart/${product.id}" method="post" style="width: 100%;">
-                                                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-                                                            <button type="submit" class="btn-add-cart">
-                                                                <i class="fas fa-shopping-cart"></i>
-                                                                Thêm vào giỏ
-                                                            </button>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <c:set var="count" value="${count + 1}" />
-                                        </c:if>
-                                    </c:if>
-                                </c:forEach>
+                            <div class="package-features">
+                                <c:forTokens var="feature" items="${servicePackage.features}" delims=",">
+                                    <div class="feature-item">
+                                        <i class="fas fa-check"></i>
+                                        <span>${feature}</span>
+                                    </div>
+                                </c:forTokens>
+                            </div>
+                            <div class="package-price">
+                                <c:choose>
+                                    <c:when test="${servicePackage.priceType == 'contact'}">
+                                        <span class="price-text">Liên hệ</span>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <span class="price-text">Từ
+                                            <fmt:formatNumber value="${servicePackage.priceFrom}" type="number" pattern="#,###đ" />
+                                        </span>
+                                    </c:otherwise>
+                                </c:choose>
+                            </div>
+                            <div class="package-action">
+                                <a href="/booking/create" class="btn ${servicePackage.isFeatured ? 'btn-primary' : 'btn-outline-primary'}">
+                                    Xem chi tiết
+                                </a>
                             </div>
                         </div>
-                    </c:forEach>
+                    </div>
+                </c:forEach>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Quy trình đơn giản chỉ 4 bước</h2>
                 </div>
-
-                <jsp:include page="../layout/feature.jsp" />
-
-                <jsp:include page="../layout/footer.jsp" />
-
-                <!-- Back to Top -->
-                <a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top">
-                    <i class="fa fa-arrow-up"></i>
-                </a>
-
-                <!-- Chat Icon -->
-                <div id="chat-icon" onclick="redirectToCareService()">
-                    <i class="fas fa-comment-alt"></i>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="step-card text-center">
+                        <div class="step-number">1</div>
+                        <div class="step-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <h4>Đặt lịch online</h4>
+                        <p>Chọn ngày giờ phù hợp với bạn</p>
+                    </div>
                 </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="step-card text-center">
+                        <div class="step-number">2</div>
+                        <div class="step-icon">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <h4>Chúng tôi liên hệ bạn</h4>
+                        <p>Lấy máy theo lịch đã hẹn</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="step-card text-center">
+                        <div class="step-number">3</div>
+                        <div class="step-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h4>Sửa chữa & cập nhật</h4>
+                        <p>Theo dõi tiến độ online</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="step-card text-center">
+                        <div class="step-number">4</div>
+                        <div class="step-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h4>Nhận máy</h4>
+                        <p>Kiểm tra và thanh toán</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <!-- JavaScript Libraries -->
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-                <script src="/client/lib/easing/easing.min.js"></script>
-                <script src="/client/lib/waypoints/waypoints.min.js"></script>
-                <script src="/client/lib/lightbox/js/lightbox.min.js"></script>
-                <script src="/client/lib/owlcarousel/owl.carousel.min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js"></script>
+    <!-- Booking Section -->
+    <section id="booking-section" class="booking-section py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title text-white">Sẵn sàng sửa máy? Đặt lịch trong 2 phút!</h2>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <div class="booking-cta">
+                        <a href="/booking/create" class="btn btn-warning btn-lg px-5 mb-4">
+                            <i class="fas fa-calendar-plus me-2"></i>ĐẶT LỊCH NGAY
+                        </a>
+                        <p class="mb-0">
+                            <i class="fas fa-phone me-2"></i>
+                            Hoặc hotline: <strong>091 841 9293</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <!-- Template Javascript -->
-                <script src="/client/js/main.js"></script>
-                
-                <script>
-                    // Product description truncation
-                    document.querySelectorAll('.product-description').forEach(function (desc) {
-                        const words = desc.textContent.trim().split(/\s+/);
-                        if (words.length > 8) {
-                            desc.textContent = words.slice(0, 8).join(' ') + '...';
-                        }
-                    });
+    <!-- Trust Section -->
+    <section class="trust-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Tại sao chọn Fix ProTech?</h2>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="trust-item text-center">
+                        <div class="trust-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h4>khách hàng hài lòng tại Cần Thơ</h4>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="trust-item text-center">
+                        <div class="trust-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h4>Linh kiện chính hãng, bảo hành rõ ràng</h4>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="trust-item text-center">
+                        <div class="trust-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h4>Theo dõi tiến độ online mọi lúc</h4>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="trust-item text-center">
+                        <div class="trust-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h4>Giá cả minh bạch, không phát sinh</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    // Chat service redirect
-                    function redirectToCareService() {
-                        window.location.href = "/careservice";
-                    }
+    <!-- Include Footer -->
+    <jsp:include page="../layout/footer.jsp" />
 
-                    // Smooth scroll for back to top
-                    document.querySelector('.back-to-top').addEventListener('click', function(e) {
-                        e.preventDefault();
-                        window.scrollTo({
-                            top: 0,
-                            behavior: 'smooth'
-                        });
-                    });
-
-                    // Product card animations
-                    document.addEventListener('DOMContentLoaded', function() {
-                        const productCards = document.querySelectorAll('.product-card');
-                        productCards.forEach((card, index) => {
-                            setTimeout(() => {
-                                card.style.opacity = '0';
-                                card.style.transform = 'translateY(20px)';
-                                card.style.transition = 'all 0.6s ease';
-                                
-                                setTimeout(() => {
-                                    card.style.opacity = '1';
-                                    card.style.transform = 'translateY(0)';
-                                }, 100);
-                            }, index * 100);
-                        });
-                    });
-
-                    // Hero section parallax effect
-                    window.addEventListener('scroll', function() {
-                        const scrolled = window.pageYOffset;
-                        const hero = document.querySelector('.hero-section');
-                        if (hero) {
-                            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-                        }
-                    });
-                </script>
-            </body>
-
-            </html>
+    <!-- Custom JS -->
+    <script src="${pageContext.request.contextPath}/resources/js/home.js"></script>
+</body>
+</html>

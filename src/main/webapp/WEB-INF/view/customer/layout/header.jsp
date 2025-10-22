@@ -4,8 +4,8 @@
 <html>
 
 <head>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
         /* Modern Header Styles */
         .navbar {
@@ -14,6 +14,8 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             padding: 15px 0;
+            z-index: 1030;
+            position: relative;
         }
 
         .navbar-brand {
@@ -38,38 +40,6 @@
             transform: translateY(-2px);
         }
 
-        /* Search Bar */
-        .nav-item.search-bar {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 5px;
-            position: relative;
-            margin: 0 15px;
-        }
-
-        .nav-search {
-            width: 200px;
-            padding: 12px 20px;
-            border: 2px solid #e2e8f0;
-            border-radius: 25px;
-            outline: none;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            background: #f8fafc;
-        }
-
-        .nav-search:focus {
-            width: 300px;
-            border-color: #667eea;
-            background: white;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
-
-        .nav-search::placeholder {
-            color: #a0aec0;
-            font-style: italic;
-        }
 
         /* Dropdown */
         .dropdown-menu {
@@ -78,6 +48,8 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             padding: 10px 0;
             margin-top: 10px;
+            z-index: 1050;
+            position: absolute;
         }
 
         .dropdown-item {
@@ -181,14 +153,6 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .nav-search {
-                width: 150px;
-            }
-            
-            .nav-search:focus {
-                width: 200px;
-            }
-            
             .user-actions {
                 gap: 10px;
             }
@@ -212,7 +176,7 @@
 
 <body>
     <!-- Navbar Start -->
-    <div class="container-fluid fixed-top">
+    <div class="container-fluid fixed-top" style="z-index: 1030;">
         <div class="container px-0">
             <nav class="navbar navbar-light navbar-expand-xl">
                 <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse"
@@ -223,18 +187,10 @@
                     <div class="navbar-nav align-items-center">
                         <li class="nav-item logo-item">
                             <a href="/" class="navbar-brand d-flex align-items-center">
-                                <img class="nav-logo me-2" src="/client/img/logo.jpg" alt="Logo Cửa Hàng Laptop">
-                                <span class="d-none d-md-block">Cửa Hàng Laptop</span>
+                                <img class="nav-logo me-2" src="/client/img/logo.jpg" alt="Logo ProTech">
+                                <span class="d-none d-md-block">ProTech</span>
                             </a>
                         </li>
-                        
-                        <!-- Search Form -->
-                        <form action="/search" method="get" class="nav-item search-bar d-flex" id="searchForm">
-                            <input class="nav-search" type="text" name="query" id="searchInput" placeholder="Tìm kiếm laptop, dịch vụ...">
-                            <button type="submit" class="btn p-0 ms-2" style="background: none; border: none;">
-                                <i class="fas fa-search fa-lg text-primary"></i>
-                            </button>
-                        </form>
                         
                         <!-- Dropdown Category (Danh mục) -->
                         <div class="nav-item dropdown">
@@ -332,16 +288,6 @@
         </div>
     </div>
     <!-- Navbar End -->
-    <script>
-        document.getElementById('searchForm').addEventListener('submit', function(event) {
-            var query = document.getElementById('searchInput').value.trim();
-            if (query === '') {
-                event.preventDefault();
-                // Redirect to advanced search page
-                window.location.href = '/search/advanced';
-            }
-        });
-    </script>
 </body>
 
 </html>
